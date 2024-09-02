@@ -872,8 +872,10 @@ export default function Component() {
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm Leo Joseph</h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    I'm a bioinformatics-focused developer studying Bioengineering: Bioinformatics at UCSD. I'm passionate about using
-                    machine learning to solve complex problems in the field of biology.
+                    Passionate about applying machine learning to solve complex biological problems. Currently developing computational tools for microbiome studies at Knight Lab, UCSD.
+                  </p>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  When I'm not a student, I like to drink coffee, take photos, and pursue athletic endevours.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -1042,7 +1044,7 @@ export default function Component() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  These are some of the projects I've worked on during my time at UCSD.
+                  Here are some of the projects I've worked on during my time at UCSD.
                 </p>
               </div>
             </div>
@@ -1245,20 +1247,13 @@ export default function Component() {
                   </p>
                   <p>
                     My experience spans from academic research to industry internships. At the Knight Lab at UCSD, I've been working on 
-                    microbiome studies, developing tools like Qupid for case-control matching. I've also interned at Kaiser Permanente, 
-                    where I conducted data analytics and error management, and at Clear Labs, where I worked on NGS sequencing and 
-                    bioinformatic analysis of SARS-COV-2 data.
-                  </p>
-                  <p>
-                    I'm passionate about leveraging machine learning and bioinformatics to solve complex problems in biology. 
-                    My projects range from developing AI-based anomaly detection for network analytics at Cisco to creating 
-                    machine learning algorithms for cancer research at the Alexandrov Lab.
+                    microbiome studies. I primarily focus on Autism Spectrum Disorder (ASD), using advanced machine learning and bioinformatics techniques to identify and diagnose ASD using the gut microbiome. 
                   </p>
                 </div>
               </div>
               <div className="flex flex-col items-start space-y-4">
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Education</div>
-                <div className="grid gap-2">
+                <div className="grid gap-8">
                   <div>
                     <h3 className="text-lg font-bold">University of California, San Diego</h3>
                     <p className="text-muted-foreground">Bachelor of Science in Bioengineering: Bioinformatics</p>
@@ -1271,6 +1266,15 @@ export default function Component() {
                       <li>Kaiser Permanente Intern (Jun 2023 - Sep 2023)</li>
                       <li>Clear Labs R&D Intern (Jun 2021 - Aug 2021)</li>
                       <li>Cisco Software Engineer Intern (Jun 2021 - Aug 2021)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Relevant Coursework</h3>
+                    <ul className="list-disc pl-4 text-muted-foreground">
+                      <li>Design & Analysis of Algorithms</li>
+                      <li>Applied Genomic Technologies</li>
+                      <li>Advanced Bioinformatics Lab</li>
+                      <li>Supervised Machine Learning Algorithms</li>
                     </ul>
                   </div>
                 </div>
