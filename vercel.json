@@ -1,0 +1,11 @@
+{
+    "buildCommand": "next build",
+    "outputDirectory": "build",
+    "framework": "nextjs",
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ]
+  }
