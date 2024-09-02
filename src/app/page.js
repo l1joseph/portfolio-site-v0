@@ -532,7 +532,7 @@
 //       <header className="px-4 lg:px-6 h-14 flex items-center">
 //         <Link href="#" className="flex items-center justify-center" prefetch={false}>
 //           <CodeIcon className="h-6 w-6" />
-//           <span className="sr-only">Leo Joseph's Portfolio</span>
+//           <span className="sr-only">Leo Joseph&apos;s Portfolio</span>
 //         </Link>
 //         <nav className="ml-auto flex gap-4 sm:gap-6">
 //           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
@@ -558,9 +558,9 @@
 //             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
 //               <div className="flex flex-col justify-center space-y-4">
 //                 <div className="space-y-2">
-//                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm Leo Joseph</h1>
+//                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I&apos;m Leo Joseph</h1>
 //                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-//                     I'm a bioinformatics-focused developer currently studying at UCSD. I'm passionate about using
+//                     I&apos;m a bioinformatics-focused developer currently studying at UCSD. I&apos;m passionate about using
 //                     machine learning to solve complex problems in the field of biology.
 //                   </p>
 //                 </div>
@@ -608,7 +608,7 @@
 //                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
 //                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
 //                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-//                   These are some of the projects I've worked on during my time at UCSD.
+//                   These are some of the projects I&apos;ve worked on during my time at UCSD.
 //                 </p>
 //               </div>
 //             </div>
@@ -689,7 +689,7 @@
 //                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
 //                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
 //                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-//                   I'm proficient in a variety of programming languages and tools used in the field of bioinformatics.
+//                   I&apos;m proficient in a variety of programming languages and tools used in the field of bioinformatics.
 //                 </p>
 //               </div>
 //             </div>
@@ -734,18 +734,18 @@
 //                 </h2>
 //                 <div className="prose">
 //                   <p>
-//                     I'm a bioinformatics-focused developer currently studying at the University of California, San Diego
-//                     (UCSD). I'm pursuing a Bachelor's degree in Bioengineering: Bioinformatics.
+//                     I&apos;m a bioinformatics-focused developer currently studying at the University of California, San Diego
+//                     (UCSD). I&apos;m pursuing a Bachelor&apos;s degree in Bioengineering: Bioinformatics.
 //                   </p>
 //                   <p>
-//                     During my time at UCSD, I've had the opportunity to work on a variety of projects related to
-//                     genomics, protein structure prediction, and data visualization. I'm passionate about using
+//                     During my time at UCSD, I&apos;ve had the opportunity to work on a variety of projects related to
+//                     genomics, protein structure prediction, and data visualization. I&apos;m passionate about using
 //                     machine learning to solve complex problems in the field of biology and am always eager to learn new skills
 //                     and techniques.
 //                   </p>
 //                   <p>
-//                     In addition to my coursework, I've also gained valuable experience through internships and research
-//                     opportunities. I've worked as a software engineering intern at a leading bioinformatics company,
+//                     In addition to my coursework, I&apos;ve also gained valuable experience through internships and research
+//                     opportunities. I&apos;ve worked as a software engineering intern at a leading bioinformatics company,
 //                     where I developed tools for analyzing DNA sequences and visualizing genomic data.
 //                   </p>
 //                 </div>
@@ -844,7 +844,7 @@ export default function Component() {
       <header className="px-4 lg:px-6 h-14 flex items-center">
         <Link href="#" className="flex items-center justify-center" prefetch={false}>
           <CodeIcon className="h-6 w-6" />
-          <span className="sr-only">Leo Joseph's Portfolio</span>
+          <span className="sr-only">Leo Joseph&apos;s Portfolio</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
@@ -870,12 +870,12 @@ export default function Component() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm Leo Joseph</h1>
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I&apos;m Leo Joseph</h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Passionate about applying machine learning to solve complex biological problems. Currently developing computational tools for microbiome studies at Knight Lab, UCSD.
                   </p>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  When I'm not a student, I like to drink coffee, take photos, and pursue athletic endevours.
+                  When I&apos;m not a student, I like to drink coffee, take photos, and pursue athletic endevours.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -915,7 +915,7 @@ export default function Component() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  These are some of the projects I've worked on during my time at UCSD.
+                  These are some of the projects I&apos;ve worked on during my time at UCSD.
                 </p>
               </div>
             </div>
@@ -1044,7 +1044,7 @@ export default function Component() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Here are some of the projects I've worked on during my time at UCSD.
+                  Here are some of the projects I&apos;ve worked on during my time at UCSD.
                 </p>
               </div>
             </div>
@@ -1170,7 +1170,7 @@ export default function Component() {
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I'm proficient in a variety of programming languages and tools used in bioinformatics and software development.
+                  I&apos;m proficient in a variety of programming languages and tools used in bioinformatics and software development.
                 </p>
               </div>
             </div>
@@ -1242,11 +1242,11 @@ export default function Component() {
                 </h2>
                 <div className="prose">
                   <p>
-                    I'm a bioinformatics-focused developer currently studying at the University of California, San Diego
-                    (UCSD). I'm pursuing a Bachelor's degree in Bioengineering: Bioinformatics, expected to graduate in June 2025.
+                    I&apos;m a bioinformatics-focused developer currently studying at the University of California, San Diego
+                    (UCSD). I&apos;m pursuing a Bachelor&apos;s degree in Bioengineering: Bioinformatics, expected to graduate in June 2025.
                   </p>
                   <p>
-                    My experience spans from academic research to industry internships. At the Knight Lab at UCSD, I've been working on 
+                    My experience spans from academic research to industry internships. At the Knight Lab at UCSD, I&apos;ve been working on 
                     microbiome studies. I primarily focus on Autism Spectrum Disorder (ASD), using advanced machine learning and bioinformatics techniques to identify and diagnose ASD using the gut microbiome. 
                   </p>
                 </div>
