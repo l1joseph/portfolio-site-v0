@@ -1,113 +1,1353 @@
-import Image from "next/image";
+//claude left indexed
 
-export default function Home() {
+// import Link from "next/link"
+// import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+// import { Badge } from "@/components/ui/badge"
+// import Image from 'next/image';
+
+
+// export default function Component() {
+//   return (
+//     <div className="flex flex-col min-h-[100dvh]">
+//       <header className="px-4 lg:px-6 h-14 flex items-center">
+//         <Link href="#" className="flex items-center justify-center" prefetch={false}>
+//           <CodeIcon className="h-6 w-6" />
+//           <span className="sr-only">Leo Joseph&apos;s Portfolio</span>
+//         </Link>
+//         <nav className="ml-auto flex gap-4 sm:gap-6">
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Home
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Projects
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Skills
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             About
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Contact
+//           </Link>
+//         </nav>
+//       </header>
+//       <main className="flex-1">
+//         <section id="hero" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6">
+//             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+//               <div className="flex flex-col justify-center space-y-4">
+//                 <div className="space-y-2">
+//                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I&apos;m Leo Joseph</h1>
+//                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
+//                     I&apos;m a bioinformatics-focused developer currently studying at UCSD. I&apos;m passionate about using
+//                     machine learning to solve complex problems in the field of biology.
+//                   </p>
+//                 </div>
+//                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Projects
+//                   </Link>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     Contact Me
+//                   </Link>
+//                 </div>
+//               </div>
+//               <Image
+//                 src="/placeholder.svg"
+//                 width={550}
+//                 height={550}
+//                 alt="Hero"
+//                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+//               />
+//             </div>
+//           </div>
+//         </section>
+//         <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container px-4 md:px-6">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   These are some of the projects I&apos;ve worked on during my time at UCSD.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Bioinformatics Tool</CardTitle>
+//                   <CardDescription>A web application that helps researchers analyze DNA sequences.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">Python</Badge>
+//                     <Badge variant="secondary">Django</Badge>
+//                     <Badge variant="secondary">React</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Genomics Visualization</CardTitle>
+//                   <CardDescription>A data visualization tool for exploring genomic data.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">JavaScript</Badge>
+//                     <Badge variant="secondary">D3.js</Badge>
+//                     <Badge variant="secondary">React</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Protein Structure Prediction</CardTitle>
+//                   <CardDescription>A machine learning model for predicting protein structures.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">Python</Badge>
+//                     <Badge variant="secondary">TensorFlow</Badge>
+//                     <Badge variant="secondary">Jupyter Notebook</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   I&apos;m proficient in a variety of programming languages and tools used in the field of bioinformatics.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Programming Languages</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">Python</Badge>
+//                   <Badge variant="secondary">Java</Badge>
+//                   <Badge variant="secondary">JavaScript</Badge>
+//                   <Badge variant="secondary">R</Badge>
+//                 </div>
+//               </div>
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Bioinformatics Tools</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">BLAST</Badge>
+//                   <Badge variant="secondary">HMMER</Badge>
+//                   <Badge variant="secondary">Biopython</Badge>
+//                   <Badge variant="secondary">Samtools</Badge>
+//                 </div>
+//               </div>
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Web Technologies</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">React</Badge>
+//                   <Badge variant="secondary">Django</Badge>
+//                   <Badge variant="secondary">Flask</Badge>
+//                   <Badge variant="secondary">D3.js</Badge>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="about" className="w-full py-12 md:py-24 lg:py-32 border-t">
+//           <div className="container px-4 md:px-6">
+//             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
+//               <div className="space-y-4">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Me</div>
+//                 <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+//                   My Educational and Professional Background
+//                 </h2>
+//                 <div className="prose">
+//                   <p>
+//                     I&apos;m a bioinformatics-focused developer currently studying at the University of California, San Diego
+//                     (UCSD). I&apos;m pursuing a Bachelor&apos;s degree in Computer Science with a specialization in
+//                     Bioinformatics.
+//                   </p>
+//                   <p>
+//                     During my time at UCSD, I&apos;ve had the opportunity to work on a variety of projects related to
+//                     genomics, protein structure prediction, and data visualization. I&apos;m passionate about using
+//                     machine learning to solve complex problems in the field of biology and am always eager to learn new skills
+//                     and techniques.
+//                   </p>
+//                   <p>
+//                     In addition to my coursework, I&apos;ve also gained valuable experience through internships and research
+//                     opportunities. I&apos;ve worked as a software engineering intern at a leading bioinformatics company,
+//                     where I developed tools for analyzing DNA sequences and visualizing genomic data.
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="flex flex-col items-start space-y-4">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Education</div>
+//                 <div className="grid gap-2">
+//                   <div>
+//                     <h3 className="text-lg font-bold">University of California, San Diego</h3>
+//                     <p className="text-muted-foreground">Bachelor of Science in Computer Science (Bioinformatics)</p>
+//                     <p className="text-muted-foreground">Expected Graduation: June 2024</p>
+//                   </div>
+//                   <div>
+//                     <h3 className="text-lg font-bold">Relevant Coursework</h3>
+//                     <ul className="list-disc pl-4 text-muted-foreground">
+//                       <li>Algorithms for Bioinformatics</li>
+//                       <li>Computational Biology</li>
+//                       <li>Genomics and Bioinformatics</li>
+//                       <li>Machine Learning for Bioinformatics</li>
+//                     </ul>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+//             <div className="space-y-3">
+//               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get in Touch</h2>
+//               <div className="flex flex-col gap-2 items-center">
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   GitHub
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   LinkedIn
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   Email
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//       </main>
+//       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+//         <p className="text-xs text-muted-foreground">&copy; 2024 Leo Joseph. All rights reserved.</p>
+//         <nav className="sm:ml-auto flex gap-4 sm:gap-6" />
+//       </footer>
+//     </div>
+//   )
+// }
+
+// function CodeIcon(props) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <polyline points="16 18 22 12 16 6" />
+//       <polyline points="8 6 2 12 8 18" />
+//     </svg>
+//   )
+// }
+
+
+
+
+
+//claude centered
+
+
+// import Link from "next/link"
+// import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+// import { Badge } from "@/components/ui/badge"
+// import Image from 'next/image';
+
+// export default function Component() {
+//   return (
+//     <div className="flex flex-col min-h-[100dvh]">
+//       <header className="px-4 lg:px-6 h-14 flex items-center justify-center">
+//         <Link href="#" className="flex items-center justify-center" prefetch={false}>
+//           <CodeIcon className="h-6 w-6" />
+//           <span className="sr-only">Leo Joseph&apos;s Portfolio</span>
+//         </Link>
+//         <nav className="flex gap-4 sm:gap-6">
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Home
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Projects
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Skills
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             About
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Contact
+//           </Link>
+//         </nav>
+//       </header>
+//       <main className="flex-1">
+//         <section id="hero" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6 mx-auto">
+//             <div className="flex flex-col items-center justify-center gap-6 text-center">
+//               <div className="space-y-2">
+//                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I&apos;m Leo Joseph</h1>
+//                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
+//                   I&apos;m a bioinformatics-focused developer currently studying at UCSD. I&apos;m passionate about using
+//                   machine learning to solve complex problems in the field of biology.
+//                 </p>
+//               </div>
+//               <div className="flex flex-col gap-2 min-[400px]:flex-row">
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   View Projects
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   Contact Me
+//                 </Link>
+//               </div>
+//               <Image
+//                 src="/placeholder.svg"
+//                 width={550}
+//                 height={550}
+//                 alt="Hero"
+//                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:aspect-square"
+//               />
+//             </div>
+//           </div>
+//         </section>
+//         <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container px-4 md:px-6 mx-auto">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   These are some of the projects I&apos;ve worked on during my time at UCSD.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+//               {/* Project cards remain the same */}
+//             </div>
+//           </div>
+//         </section>
+//         <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6 mx-auto">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   I&apos;m proficient in a variety of programming languages and tools used in the field of bioinformatics.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+//               {/* Skill sections remain the same */}
+//             </div>
+//           </div>
+//         </section>
+//         <section id="about" className="w-full py-12 md:py-24 lg:py-32 border-t">
+//           <div className="container px-4 md:px-6 mx-auto">
+//             <div className="flex flex-col items-center gap-10 sm:px-10 md:gap-16">
+//               <div className="space-y-4 text-center">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Me</div>
+//                 <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+//                   My Educational and Professional Background
+//                 </h2>
+//                 <div className="prose max-w-[900px] mx-auto">
+//                   <p>
+//                     I&apos;m a bioinformatics-focused developer currently studying at the University of California, San Diego
+//                     (UCSD). I&apos;m pursuing a Bachelor&apos;s degree in Computer Science with a specialization in
+//                     Bioinformatics.
+//                   </p>
+//                   <p>
+//                     During my time at UCSD, I&apos;ve had the opportunity to work on a variety of projects related to
+//                     genomics, protein structure prediction, and data visualization. I&apos;m passionate about using
+//                     machine learning to solve complex problems in the field of biology and am always eager to learn new skills
+//                     and techniques.
+//                   </p>
+//                   <p>
+//                     In addition to my coursework, I&apos;ve also gained valuable experience through internships and research
+//                     opportunities. I&apos;ve worked as a software engineering intern at a leading bioinformatics company,
+//                     where I developed tools for analyzing DNA sequences and visualizing genomic data.
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="flex flex-col items-center space-y-4 text-center">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Education</div>
+//                 <div className="grid gap-2">
+//                   <div>
+//                     <h3 className="text-lg font-bold">University of California, San Diego</h3>
+//                     <p className="text-muted-foreground">Bachelor of Science in Computer Science (Bioinformatics)</p>
+//                     <p className="text-muted-foreground">Expected Graduation: June 2024</p>
+//                   </div>
+//                   <div>
+//                     <h3 className="text-lg font-bold">Relevant Coursework</h3>
+//                     <ul className="list-disc pl-4 text-muted-foreground">
+//                       <li>Algorithms for Bioinformatics</li>
+//                       <li>Computational Biology</li>
+//                       <li>Genomics and Bioinformatics</li>
+//                       <li>Machine Learning for Bioinformatics</li>
+//                     </ul>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+//             <div className="space-y-3">
+//               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get in Touch</h2>
+//               <div className="flex flex-col gap-2 items-center">
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   GitHub
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   LinkedIn
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   Email
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//       </main>
+//       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center justify-center px-4 md:px-6 border-t">
+//         <p className="text-xs text-muted-foreground">&copy; 2024 Leo Joseph. All rights reserved.</p>
+//       </footer>
+//     </div>
+//   )
+// }
+
+// function CodeIcon(props) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <polyline points="16 18 22 12 16 6" />
+//       <polyline points="8 6 2 12 8 18" />
+//     </svg>
+//   )
+// }
+
+
+
+
+
+
+// import Image from 'next/image';
+// import Link from "next/link"
+// import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+// import { Badge } from "@/components/ui/badge"
+
+// export default function Component() {
+//   return (
+//     <div className="flex flex-col min-h-[100dvh]">
+//       <header className="px-4 lg:px-6 h-14 flex items-center">
+//         <Link href="#" className="flex items-center justify-center" prefetch={false}>
+//           <CodeIcon className="h-6 w-6" />
+//           <span className="sr-only">Leo Joseph's Portfolio</span>
+//         </Link>
+//         <nav className="ml-auto flex gap-4 sm:gap-6">
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Home
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Projects
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Skills
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             About
+//           </Link>
+//           <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+//             Contact
+//           </Link>
+//         </nav>
+//       </header>
+//       <main className="flex-1">
+//         <section id="hero" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6">
+//             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+//               <div className="flex flex-col justify-center space-y-4">
+//                 <div className="space-y-2">
+//                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm Leo Joseph</h1>
+//                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
+//                     I'm a bioinformatics-focused developer currently studying at UCSD. I'm passionate about using
+//                     machine learning to solve complex problems in the field of biology.
+//                   </p>
+//                 </div>
+//                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Projects
+//                   </Link>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     Contact Me
+//                   </Link>
+//                 </div>
+//               </div>
+//               {/* <Image
+//                 src="/leo_halfmarathon.jpeg"
+//                 width={3840}
+//                 height={2160}
+//                 alt="Picture of Leo"
+//                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+//               /> */}
+//               <Image
+//                 src="/leo_halfmarathon.jpeg"
+//                 width={0}
+//                 height={0}
+//                 alt="Leo Joseph at half marathon"
+//                 sizes="100vw"
+//                 className="w-auto h-auto max-w-none max-h-none rounded-xl transform scale-120"
+//                 style={{ transform: 'scale(.8)' }}
+//                 priority
+//               />
+//             </div>
+//           </div>
+//         </section>
+//         <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container px-4 md:px-6">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   These are some of the projects I've worked on during my time at UCSD.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Bioinformatics Tool</CardTitle>
+//                   <CardDescription>A web application that helps researchers analyze DNA sequences.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">Python</Badge>
+//                     <Badge variant="secondary">Django</Badge>
+//                     <Badge variant="secondary">React</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Genomics Visualization</CardTitle>
+//                   <CardDescription>A data visualization tool for exploring genomic data.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">JavaScript</Badge>
+//                     <Badge variant="secondary">D3.js</Badge>
+//                     <Badge variant="secondary">React</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//               <Card>
+//                 <CardHeader>
+//                   <CardTitle>Protein Structure Prediction</CardTitle>
+//                   <CardDescription>A machine learning model for predicting protein structures.</CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <div className="flex items-center gap-2">
+//                     <Badge variant="secondary">Python</Badge>
+//                     <Badge variant="secondary">TensorFlow</Badge>
+//                     <Badge variant="secondary">Jupyter Notebook</Badge>
+//                   </div>
+//                 </CardContent>
+//                 <CardFooter>
+//                   <Link
+//                     href="#"
+//                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                     prefetch={false}
+//                   >
+//                     View Project
+//                   </Link>
+//                 </CardFooter>
+//               </Card>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
+//           <div className="container px-4 md:px-6">
+//             <div className="flex flex-col items-center justify-center space-y-4 text-center">
+//               <div className="space-y-2">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
+//                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
+//                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+//                   I'm proficient in a variety of programming languages and tools used in the field of bioinformatics.
+//                 </p>
+//               </div>
+//             </div>
+//             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Programming Languages</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">Python</Badge>
+//                   <Badge variant="secondary">Java</Badge>
+//                   <Badge variant="secondary">JavaScript</Badge>
+//                   <Badge variant="secondary">R</Badge>
+//                 </div>
+//               </div>
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Bioinformatics Tools</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">BLAST</Badge>
+//                   <Badge variant="secondary">HMMER</Badge>
+//                   <Badge variant="secondary">Biopython</Badge>
+//                   <Badge variant="secondary">Samtools</Badge>
+//                 </div>
+//               </div>
+//               <div className="grid gap-1">
+//                 <h3 className="text-lg font-bold">Web Technologies</h3>
+//                 <div className="flex flex-wrap gap-2">
+//                   <Badge variant="secondary">React</Badge>
+//                   <Badge variant="secondary">Django</Badge>
+//                   <Badge variant="secondary">Flask</Badge>
+//                   <Badge variant="secondary">D3.js</Badge>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="about" className="w-full py-12 md:py-24 lg:py-32 border-t">
+//           <div className="container px-4 md:px-6">
+//             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
+//               <div className="space-y-4">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Me</div>
+//                 <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+//                   My Educational and Professional Background
+//                 </h2>
+//                 <div className="prose">
+//                   <p>
+//                     I'm a bioinformatics-focused developer currently studying at the University of California, San Diego
+//                     (UCSD). I'm pursuing a Bachelor's degree in Bioengineering: Bioinformatics.
+//                   </p>
+//                   <p>
+//                     During my time at UCSD, I've had the opportunity to work on a variety of projects related to
+//                     genomics, protein structure prediction, and data visualization. I'm passionate about using
+//                     machine learning to solve complex problems in the field of biology and am always eager to learn new skills
+//                     and techniques.
+//                   </p>
+//                   <p>
+//                     In addition to my coursework, I've also gained valuable experience through internships and research
+//                     opportunities. I've worked as a software engineering intern at a leading bioinformatics company,
+//                     where I developed tools for analyzing DNA sequences and visualizing genomic data.
+//                   </p>
+//                 </div>
+//               </div>
+//               <div className="flex flex-col items-start space-y-4">
+//                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Education</div>
+//                 <div className="grid gap-2">
+//                   <div>
+//                     <h3 className="text-lg font-bold">University of California, San Diego</h3>
+//                     <p className="text-muted-foreground">Bachelor of Science in Bioenginnering: Bioinformatics</p>
+//                     <p className="text-muted-foreground">Expected Graduation: June 2025</p>
+//                   </div>
+//                   <div>
+//                     <h3 className="text-lg font-bold">Relevant Coursework</h3>
+//                     <ul className="list-disc pl-4 text-muted-foreground">
+//                       <li>Algorithms for Bioinformatics</li>
+//                       <li>Computational Biology</li>
+//                       <li>Genomics and Bioinformatics</li>
+//                       <li>Machine Learning for Bioinformatics</li>
+//                     </ul>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//         <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+//           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+//             <div className="space-y-3">
+//               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get in Touch</h2>
+//               <div className="flex flex-col gap-2 items-center">
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   GitHub
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   LinkedIn
+//                 </Link>
+//                 <Link
+//                   href="#"
+//                   className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+//                   prefetch={false}
+//                 >
+//                   Email
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+//       </main>
+//       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+//         <p className="text-xs text-muted-foreground">&copy; 2024 Leo Joseph. All rights reserved.</p>
+//         <nav className="sm:ml-auto flex gap-4 sm:gap-6" />
+//       </footer>
+//     </div>
+//   )
+// }
+
+// function CodeIcon(props) {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <polyline points="16 18 22 12 16 6" />
+//       <polyline points="8 6 2 12 8 18" />
+//     </svg>
+//   )
+// }
+
+
+
+import Image from 'next/image';
+import Link from "next/link"
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
+export default function Component() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="flex flex-col min-h-[100dvh]">
+      <header className="px-4 lg:px-6 h-14 flex items-center">
+        <Link href="#" className="flex items-center justify-center" prefetch={false}>
+          <CodeIcon className="h-6 w-6" />
+          <span className="sr-only">Leo Joseph's Portfolio</span>
+        </Link>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link href="#" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            Home
+          </Link>
+          <Link href="#projects" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            Projects
+          </Link>
+          <Link href="#skills" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            Skills
+          </Link>
+          <Link href="#about" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            About
+          </Link>
+          <Link href="#contact" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
+            Contact
+          </Link>
+        </nav>
+      </header>
+      <main className="flex-1">
+        <section id="hero" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Hi, I'm Leo Joseph</h1>
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                    I'm a bioinformatics-focused developer studying Bioengineering: Bioinformatics at UCSD. I'm passionate about using
+                    machine learning to solve complex problems in the field of biology.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <Link
+                    href="#projects"
+                    className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Projects
+                  </Link>
+                  <Link
+                    href="#contact"
+                    className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    Contact Me
+                  </Link>
+                </div>
+              </div>
+              <Image
+                src="/leo_halfmarathon.jpeg"
+                width={0}
+                height={0}
+                alt="Leo Joseph at half marathon"
+                sizes="100vw"
+                className="w-auto h-auto max-w-none max-h-none rounded-xl transform scale-120"
+                style={{ transform: 'scale(.8)' }}
+                priority
+              />
+            </div>
+          </div>
+        </section>
+        {/* <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  These are some of the projects I've worked on during my time at UCSD.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Qupid - Microbiome Analysis Tool</CardTitle>
+                  <CardDescription>A software tool for case-control matching in microbiome studies.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">Scikit-Bio</Badge>
+                    <Badge variant="secondary">QIIME 2</Badge>
+                    <Badge variant="secondary">Jupyter Notebooks</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/gibsramen/qupid"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card>
+                 <CardHeader>
+                   <CardTitle>KnightGPT</CardTitle>
+                   <CardDescription>A microbiome specific Graph-Retrieval Augmented Generation system that enhances language models.</CardDescription>
+                 </CardHeader>
+                 <CardContent>
+                   <div className="flex items-center gap-2">
+                   <Badge variant="secondary">Large Language Models</Badge>
+                   <Badge variant="secondary">Graph-RAG</Badge>
+                   <Badge variant="secondary">Ollama</Badge>
+
+                   </div>
+                 </CardContent>
+                 <CardFooter>
+                   <Link
+                     href="https://github.com/l1joseph/knightGPT"
+                     className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                     prefetch={false}
+                   >
+                     View Project
+                   </Link>
+                 </CardFooter>
+               </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>HRD Detection Algorithm</CardTitle>
+                  <CardDescription>Machine learning algorithm to detect Homologous Recombination Deficiency from RNA-seq data of breast and ovarian cancer data.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">Machine Learning</Badge>
+                    <Badge variant="secondary">RNA-seq</Badge>
+                    <Badge variant="secondary">Cancer Biology</Badge>
+                    <Badge variant="secondary">R</Badge>
+
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/l1joseph/Multiscale_HRD_Classifier"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>IDEA (Interactive Differential Expression Analysis)</CardTitle>
+                  <CardDescription>Python package designed for performing differential expression analysis on gene expression data. (Designed as a Python equivalent to DESeq2)</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">Python packaging & distribution</Badge>
+                    <Badge variant="secondary">DESEQ2</Badge>
+                    <Badge variant="secondary">R</Badge>
+
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/l1joseph/IDEA"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Skywalker V2 Prosthetic Arm</CardTitle>
+                  <CardDescription>A low-cost prosthetic arm with EMG signal processing and machine learning-driven motion control.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary">Additive Manufacturing</Badge>
+                    <Badge variant="secondary">PyTorch</Badge>
+                    <Badge variant="secondary">Arduino</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://bmes.ucsd.edu"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section> */}
+        <section id="projects" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Check out my work</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  These are some of the projects I've worked on during my time at UCSD.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-8xl items-stretch gap-6 py-12 md:grid-cols-3 lg:gap-12">
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>Qupid - Microbiome Analysis Tool</CardTitle>
+                  <CardDescription>A software tool for case-control matching in microbiome studies.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">Scikit-Bio</Badge>
+                    <Badge variant="secondary">QIIME 2</Badge>
+                    <Badge variant="secondary">Jupyter Notebooks</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/gibsramen/qupid"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>KnightGPT</CardTitle>
+                  <CardDescription>A microbiome specific Graph-Retrieval Augmented Generation system that enhances language models.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">Large Language Models</Badge>
+                    <Badge variant="secondary">Graph-RAG</Badge>
+                    <Badge variant="secondary">Ollama</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/l1joseph/knightGPT"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>HRD Detection Algorithm</CardTitle>
+                  <CardDescription>Machine learning algorithm to detect Homologous Recombination Deficiency from RNA-seq data of breast and ovarian cancer data.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">Machine Learning</Badge>
+                    <Badge variant="secondary">RNA-seq</Badge>
+                    <Badge variant="secondary">Cancer Biology</Badge>
+                    <Badge variant="secondary">R</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/l1joseph/Multiscale_HRD_Classifier"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>IDEA (Interactive Differential Expression Analysis)</CardTitle>
+                  <CardDescription>Python package designed for performing differential expression analysis on gene expression data. (Designed as a Python equivalent to DESeq2)</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">Python packaging & distribution</Badge>
+                    <Badge variant="secondary">DESEQ2</Badge>
+                    <Badge variant="secondary">R</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://github.com/l1joseph/IDEA"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="flex flex-col">
+                <CardHeader>
+                  <CardTitle>Skywalker V2 Prosthetic Arm</CardTitle>
+                  <CardDescription>A low-cost prosthetic arm with EMG signal processing and machine learning-driven motion control.</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">Additive Manufacturing</Badge>
+                    <Badge variant="secondary">PyTorch</Badge>
+                    <Badge variant="secondary">Arduino</Badge>
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Link
+                    href="https://bmes.ucsd.edu"
+                    className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                    prefetch={false}
+                  >
+                    View Project
+                  </Link>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+        <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">My Skills</div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Technologies I work with</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I'm proficient in a variety of programming languages and tools used in bioinformatics and software development.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Programming Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Python</Badge>
+                  <Badge variant="secondary">R</Badge>
+                  <Badge variant="secondary">Java</Badge>
+                  <Badge variant="secondary">C++</Badge>
+                </div>
+              </div>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Machine Learning</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">TensorFlow</Badge>
+                  <Badge variant="secondary">PyTorch</Badge>
+                  <Badge variant="secondary">scikit-learn</Badge>
+                </div>
+              </div>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Web Technologies</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">HTML/CSS</Badge>
+                  <Badge variant="secondary">JavaScript</Badge>
+                  <Badge variant="secondary">React</Badge>
+                  <Badge variant="secondary">Flask</Badge>
+                  <Badge variant="secondary">Django</Badge>
+                  <Badge variant="secondary">D3.js</Badge>
+                </div>
+              </div>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Bioinformatics Tools</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">BIRDMAn</Badge>
+                  <Badge variant="secondary">Quita</Badge>
+                  <Badge variant="secondary">Qiime2</Badge>
+                  <Badge variant="secondary">BLAST</Badge>
+                  <Badge variant="secondary">HMMER</Badge>
+                  <Badge variant="secondary">Biopython</Badge>
+                  <Badge variant="secondary">Samtools</Badge>
+                </div>
+              </div>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Cloud Platforms</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">AWS</Badge>
+                  <Badge variant="secondary">Azure</Badge>
+                </div>
+              </div>
+              <div className="grid gap-1">
+                <h3 className="text-lg font-bold">Version Control</h3>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Git</Badge>
+                  <Badge variant="secondary">GitHub</Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="about" className="w-full py-12 md:py-24 lg:py-32 border-t">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
+              <div className="space-y-4">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Me</div>
+                <h2 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+                  My Educational and Professional Background
+                </h2>
+                <div className="prose">
+                  <p>
+                    I'm a bioinformatics-focused developer currently studying at the University of California, San Diego
+                    (UCSD). I'm pursuing a Bachelor's degree in Bioengineering: Bioinformatics, expected to graduate in June 2025.
+                  </p>
+                  <p>
+                    My experience spans from academic research to industry internships. At the Knight Lab at UCSD, I've been working on 
+                    microbiome studies, developing tools like Qupid for case-control matching. I've also interned at Kaiser Permanente, 
+                    where I conducted data analytics and error management, and at Clear Labs, where I worked on NGS sequencing and 
+                    bioinformatic analysis of SARS-COV-2 data.
+                  </p>
+                  <p>
+                    I'm passionate about leveraging machine learning and bioinformatics to solve complex problems in biology. 
+                    My projects range from developing AI-based anomaly detection for network analytics at Cisco to creating 
+                    machine learning algorithms for cancer research at the Alexandrov Lab.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-start space-y-4">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Education</div>
+                <div className="grid gap-2">
+                  <div>
+                    <h3 className="text-lg font-bold">University of California, San Diego</h3>
+                    <p className="text-muted-foreground">Bachelor of Science in Bioengineering: Bioinformatics</p>
+                    <p className="text-muted-foreground">Expected Graduation: June 2025</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold">Relevant Experience</h3>
+                    <ul className="list-disc pl-4 text-muted-foreground">
+                      <li>Knight Lab - UCSD (Dec 2023 - Present)</li>
+                      <li>Kaiser Permanente Intern (Jun 2023 - Sep 2023)</li>
+                      <li>Clear Labs R&D Intern (Jun 2021 - Aug 2021)</li>
+                      <li>Cisco Software Engineer Intern (Jun 2021 - Aug 2021)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center gap-4 text-center">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get in Touch</h2>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link
+                  href="https://github.com/l1joseph"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-in-out hover:bg-secondary hover:text-secondary-foreground hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  GitHub
+                </Link>
+                <Link
+                  href="https://linkedin.com/in/leo-j-joseph"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-in-out hover:bg-secondary hover:text-secondary-foreground hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  LinkedIn
+                </Link>
+                <Link
+                  href="mailto:l1joseph@ucsd.edu"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-in-out hover:bg-secondary hover:text-secondary-foreground hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  Email
+                </Link>
+                <Link
+                  href="https://www.instagram.com/l.eo.j/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-all duration-300 ease-in-out hover:bg-secondary hover:text-secondary-foreground hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                >
+                  Instagram
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {/* <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-muted-foreground">&copy; 2024 Leo Joseph. All rights reserved.</p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6" />
+      </footer> */}
+      <footer className="w-full py-6 border-t">
+        <div className="container max-w-7xl mx-auto px-4 md:px-6 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-xs text-muted-foreground">&copy; 2024 Leo Joseph. All rights reserved.</p>
+          <nav className="sm:ml-auto flex gap-4 sm:gap-6" />
         </div>
-      </div>
+      </footer>
+    </div>
+  )
+}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+function CodeIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  )
 }
