@@ -22,7 +22,7 @@
       <!-- Left: info -->
       <div class="space-y-6">
         <p class="text-[var(--color-muted)] leading-relaxed">
-          Open to research collaborations, internship opportunities, and interesting questions about microbiome or cancer genomics. Drop me a line.
+          Feel free to reach out.
         </p>
         <div class="space-y-2">
           <p class="text-sm text-[var(--color-muted)]">Find me on:</p>

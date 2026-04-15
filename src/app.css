@@ -1,36 +1,37 @@
-@import '@fontsource-variable/inter';
-@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource/space-mono';
+@import '@fontsource/space-mono/700.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Automotive theme tokens ─────────────────────────────────── */
+/* ─── Dark (default) ──────────────────────────────────────────── */
 :root, [data-theme='dark'] {
-  --color-bg:         #0d0f14;
-  --color-bg-elev:    #15181f;
-  --color-bg-card:    #1a1d26;
-  --color-text:       #e8ecef;
-  --color-muted:      #8a9199;
-  --color-amber:      #d4a017;
-  --color-amber-dim:  #a07a10;
-  --color-cobalt:     #2b4a7a;
-  --color-cobalt-lit: #3d6aad;
-  --color-border:     #232730;
+  --color-bg:         hsl(210, 100%, 6%);
+  --color-bg-elev:    hsl(210, 100%, 9%);
+  --color-bg-card:    hsl(210, 100%, 12%);
+  --color-text:       hsl(180, 100%, 90%);
+  --color-muted:      hsl(200, 35%, 55%);
+  --color-amber:      hsl(198, 70%, 48%);
+  --color-amber-dim:  hsl(198, 60%, 38%);
+  --color-cobalt:     hsl(200, 100%, 20%);
+  --color-cobalt-lit: hsl(200, 80%, 32%);
+  --color-border:     hsl(210, 60%, 18%);
 }
 
 /* ─── Light mode override ─────────────────────────────────────── */
 [data-theme='light'] {
-  --color-bg:         #f2f0eb;
-  --color-bg-elev:    #fafaf7;
+  --color-bg:         hsl(210, 25%, 96%);
+  --color-bg-elev:    hsl(210, 15%, 99%);
   --color-bg-card:    #ffffff;
-  --color-text:       #0d0f14;
-  --color-muted:      #5a626b;
-  --color-amber:      #b8860b;
-  --color-amber-dim:  #8a6408;
-  --color-cobalt:     #1e3a5f;
-  --color-cobalt-lit: #2b5490;
-  --color-border:     #d8d6cf;
+  --color-text:       hsl(210, 60%, 12%);
+  --color-muted:      hsl(210, 25%, 42%);
+  --color-amber:      hsl(198, 70%, 38%);
+  --color-amber-dim:  hsl(198, 60%, 28%);
+  --color-cobalt:     hsl(200, 80%, 22%);
+  --color-cobalt-lit: hsl(200, 70%, 34%);
+  --color-border:     hsl(210, 25%, 80%);
 }
 
 /* ─── Global base ─────────────────────────────────────────────── */
@@ -47,16 +48,16 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Subtle automotive grid backdrop on hero */
+/* Subtle grid backdrop on hero */
 .grid-backdrop {
   background-image:
-    linear-gradient(rgba(212, 160, 23, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212, 160, 23, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(38, 165, 204, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 165, 204, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
