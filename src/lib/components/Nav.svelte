@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ThemeToggle from './ThemeToggle.svelte';
   import SocialLinks from './SocialLinks.svelte';
 
   const navLinks = [
@@ -31,10 +30,9 @@
       {/each}
     </nav>
 
-    <!-- Right: socials + theme toggle -->
+    <!-- Right: socials -->
     <div class="flex items-center">
       <SocialLinks size={18} />
-      <ThemeToggle />
     </div>
   </div>
 </header>
