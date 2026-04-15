@@ -5,14 +5,23 @@
   let dark = $state(true);
 
   $effect(() => {
+    // Read initial value
     dark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+    // Stay in sync when data-theme changes externally (OS preference change)
+    const observer = new MutationObserver(() => {
+      dark = document.documentElement.getAttribute('data-theme') !== 'light';
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+    return () => observer.disconnect();
   });
 
   function toggle() {
     dark = !dark;
-    const theme = dark ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
   }
 </script>
 

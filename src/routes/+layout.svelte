@@ -5,13 +5,11 @@
 
   let { children } = $props();
 
-  // Follow OS preference changes only when no manual override is stored
+  // Keep theme in sync with OS preference changes at runtime
   $effect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: light)');
     function apply(e: MediaQueryListEvent) {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark');
-      }
+      document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark');
     }
     mq.addEventListener('change', apply);
     return () => mq.removeEventListener('change', apply);

@@ -11,8 +11,7 @@
     <!-- No-flash theme script: runs before any content renders -->
     <script>
       (function () {
-        var stored = localStorage.getItem('theme');
-        var t = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        var t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', t);
       })();
     </script>
