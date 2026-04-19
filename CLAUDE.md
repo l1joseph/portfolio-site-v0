@@ -91,11 +91,11 @@ Server-side form action at `+page.server.ts` — the `send` action. Security lay
 6. CSP headers in `svelte.config.js`
 7. Security headers (`X-Frame-Options`, etc.) in `hooks.server.ts`
 
-Required env vars (set in Vercel project settings and `.env.local` locally):
+Required env vars (set in Vercel project settings):
 
 ```
-RESEND_API_KEY=re_xxx        # mark as Sensitive in Vercel
-CONTACT_TO_EMAIL=l1joseph@ucsd.edu
+RESEND_API_KEY        # mark as Sensitive in Vercel
+CONTACT_TO_EMAIL      # destination address for contact form submissions
 ```
 
 ## Photos
