@@ -106,9 +106,7 @@
     const DRAG_MIN_PX = 3;
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const lowEnd =
-      window.matchMedia('(pointer: coarse)').matches && navigator.hardwareConcurrency <= 4;
-    const staticMode = reducedMotion || lowEnd;
+    const staticMode = reducedMotion;
 
     const fontSpec =
       _font === 'mono'
@@ -320,11 +318,41 @@
     });
     resizeObs.observe(container);
 
+    function handleTouchStart(e: TouchEvent) {
+      if (!ready || !field) return;
+      const t = e.touches[0];
+      if (!inContainer(t.clientX, t.clientY)) return;
+      const pos = toLocal(t.clientX, t.clientY);
+      field.disturb(pos.x, pos.y, DROP_RADIUS, DROP_STRENGTH);
+      lastPt = pos;
+    }
+
+    function handleTouchMove(e: TouchEvent) {
+      if (!ready || !field) return;
+      const t = e.touches[0];
+      if (!inContainer(t.clientX, t.clientY)) { lastPt = null; return; }
+      const pos = toLocal(t.clientX, t.clientY);
+      if (lastPt) {
+        const dx = pos.x - lastPt.x;
+        const dy = pos.y - lastPt.y;
+        const steps = Math.max(1, Math.ceil(Math.hypot(dx, dy) / DRAG_MIN_PX));
+        for (let i = 1; i <= steps; i++) {
+          field.disturb(lastPt.x + (dx * i) / steps, lastPt.y + (dy * i) / steps, DRAG_RADIUS, DRAG_STRENGTH);
+        }
+      }
+      lastPt = pos;
+    }
+
+    function handleTouchEnd() { lastPt = null; }
+
     if (!staticMode) {
       window.addEventListener('pointermove', handlePointerMove);
       window.addEventListener('pointerdown', handlePointerDown);
       window.addEventListener('pointerup', handlePointerEnd);
       window.addEventListener('pointerleave', handlePointerEnd);
+      window.addEventListener('touchstart', handleTouchStart, { passive: true });
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      window.addEventListener('touchend', handleTouchEnd, { passive: true });
     }
 
     return () => {
@@ -337,6 +365,9 @@
         window.removeEventListener('pointerdown', handlePointerDown);
         window.removeEventListener('pointerup', handlePointerEnd);
         window.removeEventListener('pointerleave', handlePointerEnd);
+        window.removeEventListener('touchstart', handleTouchStart);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
       }
       cells = [];
       field = null;
