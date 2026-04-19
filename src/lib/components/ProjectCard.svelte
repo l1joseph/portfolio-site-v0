@@ -2,9 +2,60 @@
   import type { Project } from '$lib/data/projects';
 
   let { project }: { project: Project } = $props();
+
+  let cardEl: HTMLElement;
+  // null = show real description; string = show decode override
+  let descOverride = $state<string | null>(null);
+  let decoded = false;
+
+  // C — scramble description into ASCII noise, decode into real text on scroll into view
+  $effect(() => {
+    const el = cardEl;
+    if (!el || decoded) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const CHARS = '#@%=+*-:.^~';
+    const text = project.description;
+    let rafId = 0;
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      io.disconnect();
+
+      let frame = 0;
+      const FRAMES = 50;
+
+      function tick() {
+        frame++;
+        const t = frame / FRAMES;
+        const revealed = Math.floor(t * t * text.length);
+
+        if (revealed >= text.length) {
+          descOverride = null;
+          decoded = true;
+          return;
+        }
+
+        let out = '';
+        for (let i = 0; i < text.length; i++) {
+          if (i < revealed || text[i] === ' ') out += text[i];
+          else out += CHARS[Math.floor(Math.random() * CHARS.length)];
+        }
+        descOverride = out;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      descOverride = text.split('').map(c => c === ' ' ? ' ' : CHARS[Math.floor(Math.random() * CHARS.length)]).join('');
+      rafId = requestAnimationFrame(tick);
+    }, { threshold: 0.05 });
+
+    io.observe(el);
+    return () => { io.disconnect(); cancelAnimationFrame(rafId); };
+  });
 </script>
 
 <article
+  bind:this={cardEl}
   class="group relative flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 transition-all duration-200 hover:border-[var(--color-amber)]/40 hover:shadow-lg hover:-translate-y-0.5"
 >
   <!-- Amber top accent on hover -->
@@ -20,7 +71,7 @@
 
   <p class="font-mono text-xs text-[var(--color-amber)] mb-3 leading-relaxed">{project.metric}</p>
 
-  <p class="text-sm text-[var(--color-muted)] leading-relaxed flex-1">{project.description}</p>
+  <p class="text-sm text-[var(--color-muted)] leading-relaxed flex-1">{descOverride ?? project.description}</p>
 
   <div class="mt-4 flex flex-wrap gap-1.5">
     {#each project.tags as tag}

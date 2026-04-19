@@ -8,10 +8,19 @@
     import: 'default'
   });
 
-  // Keep discovered order (deterministic), map filename → object-position
+  function positionFor(path: string): string {
+    const p = path.toLowerCase();
+    if (p.includes('climb'))    return 'center 40%';
+    if (p.includes('grad'))     return 'center top';
+    if (p.includes('6a276e49')) return 'center 40%';  // canepa / Porsche photo
+    if (p.includes('marathon')) return 'center top';
+    if (p.includes('softhrd'))  return 'left center';
+    return 'center center';
+  }
+
   const photos: Photo[] = Object.entries(modules).map(([path, url]) => ({
     url: url as string,
-    position: path.toLowerCase().includes('softhrd') ? 'left center' : 'center center'
+    position: positionFor(path)
   }));
 
   let currentIndex = $state(0);
@@ -20,6 +29,10 @@
 
   function advance() {
     currentIndex = (currentIndex + 1) % photos.length;
+  }
+
+  function prev() {
+    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
   }
 
   $effect(() => {
@@ -44,7 +57,10 @@
     onclick={advance}
     onmouseenter={() => (paused = true)}
     onmouseleave={() => (paused = false)}
-    onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') advance(); }}
+    onkeydown={(e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Enter' || e.key === ' ') advance();
+      else if (e.key === 'ArrowLeft') prev();
+    }}
     role="button"
     tabindex="0"
     aria-label="Photo of Leo Joseph — click to see next"

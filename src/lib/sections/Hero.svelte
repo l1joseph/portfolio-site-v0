@@ -1,10 +1,13 @@
 <script lang="ts">
+  import AsciiBackground from '$lib/components/AsciiBackground.svelte';
   import PhotoCarousel from '$lib/components/PhotoCarousel.svelte';
   import { profile } from '$lib/data/profile';
 </script>
 
-<section id="hero" class="relative w-full py-20 md:py-32 grid-backdrop overflow-hidden">
-  <div class="mx-auto max-w-6xl px-6">
+<section id="hero" class="relative w-full min-h-[520px] md:min-h-[620px] py-20 md:py-32 overflow-hidden">
+  <AsciiBackground opacity={0.55} color="hsl(198, 100%, 65%)" class="absolute inset-0" />
+
+  <div class="relative z-10 mx-auto max-w-6xl px-6">
     <div class="grid gap-10 lg:grid-cols-[1fr_420px] lg:gap-16 items-center">
       <!-- Left: text -->
       <div class="space-y-6">
@@ -35,7 +38,6 @@
           </a>
         </div>
 
-        <!-- Role badge -->
         <p class="font-mono text-xs text-[var(--color-muted)] flex items-center gap-2">
           <span class="inline-block w-2 h-2 rounded-full bg-[var(--color-amber)] animate-pulse"></span>
           {profile.role} · {profile.location}
@@ -43,7 +45,7 @@
       </div>
 
       <!-- Right: photo carousel -->
-      <div class="relative h-[380px] sm:h-[440px] lg:h-[500px] w-full">
+      <div class="relative h-[300px] sm:h-[360px] lg:h-[500px] w-full">
         <PhotoCarousel />
       </div>
     </div>
