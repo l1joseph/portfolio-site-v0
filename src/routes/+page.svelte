@@ -1,6 +1,7 @@
 <script lang="ts">
   import Hero from '$lib/sections/Hero.svelte';
   import Projects from '$lib/sections/Projects.svelte';
+  import Publications from '$lib/sections/Publications.svelte';
   import Skills from '$lib/sections/Skills.svelte';
   import About from '$lib/sections/About.svelte';
   import Contact from '$lib/sections/Contact.svelte';
@@ -15,6 +16,7 @@
 
 <Hero />
 <Projects />
+<Publications />
 <Skills />
 <About />
 <Contact {form} />

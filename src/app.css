@@ -1,6 +1,5 @@
+@import '@fontsource-variable/jetbrains-mono';
 @import '@fontsource-variable/bricolage-grotesque';
-@import '@fontsource/space-mono';
-@import '@fontsource/space-mono/700.css';
 
 @tailwind base;
 @tailwind components;
@@ -8,30 +7,37 @@
 
 /* ─── Dark (default) ──────────────────────────────────────────── */
 :root, [data-theme='dark'] {
-  --color-bg:         hsl(210, 100%, 6%);
-  --color-bg-elev:    hsl(210, 100%, 9%);
-  --color-bg-card:    hsl(210, 100%, 12%);
-  --color-text:       hsl(180, 100%, 90%);
-  --color-muted:      hsl(200, 35%, 55%);
-  --color-amber:      hsl(198, 70%, 48%);
-  --color-amber-dim:  hsl(198, 60%, 38%);
-  --color-cobalt:     hsl(200, 100%, 20%);
-  --color-cobalt-lit: hsl(200, 80%, 32%);
-  --color-border:     hsl(210, 60%, 18%);
+  --color-bg:         #0a0a0b;
+  --color-bg-elev:    #111214;
+  --color-bg-card:    #111214;
+  --color-text:       #e4e4e7;
+  --color-muted:      #71717a;
+  --color-accent:     #60a5fa;
+  --color-accent-dim: #3b82f6;
+  --color-prompt:     #22c55e;
+  --color-border:     #27272a;
+  /* legacy aliases so existing AsciiBackground still works */
+  --color-amber:      #60a5fa;
+  --color-amber-dim:  #3b82f6;
+  --color-cobalt:     #1e3a5f;
+  --color-cobalt-lit: #2563eb;
 }
 
 /* ─── Light mode override ─────────────────────────────────────── */
 [data-theme='light'] {
-  --color-bg:         hsl(210, 25%, 96%);
-  --color-bg-elev:    hsl(210, 15%, 99%);
+  --color-bg:         #fafaf9;
+  --color-bg-elev:    #f4f4f5;
   --color-bg-card:    #ffffff;
-  --color-text:       hsl(210, 60%, 12%);
-  --color-muted:      hsl(210, 25%, 42%);
-  --color-amber:      hsl(198, 70%, 38%);
-  --color-amber-dim:  hsl(198, 60%, 28%);
-  --color-cobalt:     hsl(200, 80%, 22%);
-  --color-cobalt-lit: hsl(200, 70%, 34%);
-  --color-border:     hsl(210, 25%, 80%);
+  --color-text:       #18181b;
+  --color-muted:      #52525b;
+  --color-accent:     #2563eb;
+  --color-accent-dim: #1d4ed8;
+  --color-prompt:     #16a34a;
+  --color-border:     #e4e4e7;
+  --color-amber:      #2563eb;
+  --color-amber-dim:  #1d4ed8;
+  --color-cobalt:     #dbeafe;
+  --color-cobalt-lit: #2563eb;
 }
 
 /* ─── Global base ─────────────────────────────────────────────── */
@@ -48,21 +54,25 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'JetBrains Mono Variable', ui-monospace, monospace;
+  font-size: 14px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-/* Subtle grid backdrop on hero */
-.grid-backdrop {
-  background-image:
-    linear-gradient(rgba(38, 165, 204, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(38, 165, 204, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Blinking cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-amber-dim); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-muted); }

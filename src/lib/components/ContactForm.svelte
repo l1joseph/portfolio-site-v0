@@ -1,5 +1,6 @@
 <script lang="ts">
   import { enhance } from '$app/forms';
+  import BlinkingCursor from '$lib/components/terminal/BlinkingCursor.svelte';
 
   type ContactFormData = {
     success?: boolean;
@@ -17,12 +18,17 @@
   $effect(() => {
     if (form?.success) submitted = true;
   });
+
+  const inputClass = 'bg-transparent border-0 border-b border-[var(--color-border)] focus:border-[var(--color-accent)] focus:outline-none text-[var(--color-text)] text-sm w-full py-1 caret-[var(--color-accent)] transition-colors placeholder:text-[var(--color-border)]';
 </script>
 
 {#if submitted}
-  <div class="rounded-xl border border-[var(--color-amber)]/30 bg-[var(--color-amber)]/5 p-6 text-center">
-    <p class="font-mono text-sm text-[var(--color-amber)] mb-1">Message sent.</p>
-    <p class="text-sm text-[var(--color-muted)]">I'll get back to you at the address you provided.</p>
+  <div class="text-sm">
+    <div class="flex flex-wrap items-baseline gap-0 mb-1">
+      <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+      <span class="text-[var(--color-muted)] ml-2">./contact.sh</span>
+    </div>
+    <p class="text-[var(--color-prompt)] mt-1">✓ message sent. thanks — I'll reply soon.</p>
   </div>
 {:else}
   <form
@@ -35,70 +41,64 @@
         await update();
       };
     }}
-    class="space-y-4"
+    class="space-y-5 text-sm"
     novalidate
   >
-    <!-- Honeypot: hidden from real users, bots fill it -->
+    <!-- Honeypot -->
     <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
 
     {#if form?.error}
-      <p class="text-sm text-red-400 font-mono">{form.error}</p>
+      <p class="text-red-400 text-xs">{form.error}</p>
     {/if}
 
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="space-y-1.5">
-        <label for="name" class="text-sm font-medium text-[var(--color-text)]">Name</label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          autocomplete="name"
-          value={form?.name ?? ''}
-          placeholder="Your name"
-          class="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elev)] px-3 py-2.5 text-sm text-[var(--color-text)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/40 transition"
-        />
-      </div>
-      <div class="space-y-1.5">
-        <label for="email" class="text-sm font-medium text-[var(--color-text)]">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          autocomplete="email"
-          value={form?.email ?? ''}
-          placeholder="you@example.com"
-          class="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elev)] px-3 py-2.5 text-sm text-[var(--color-text)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/40 transition"
-        />
-      </div>
+    <div class="flex items-baseline gap-2 flex-wrap">
+      <span class="text-[var(--color-muted)] shrink-0">&gt; name:</span>
+      <input
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        value={form?.name ?? ''}
+        placeholder="_"
+        class="{inputClass} flex-1 min-w-[160px]"
+      />
     </div>
 
-    <div class="space-y-1.5">
-      <label for="message" class="text-sm font-medium text-[var(--color-text)]">Message</label>
+    <div class="flex items-baseline gap-2 flex-wrap">
+      <span class="text-[var(--color-muted)] shrink-0">&gt; email:</span>
+      <input
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        value={form?.email ?? ''}
+        placeholder="_"
+        class="{inputClass} flex-1 min-w-[160px]"
+      />
+    </div>
+
+    <div>
+      <div class="flex items-baseline gap-2 mb-1">
+        <span class="text-[var(--color-muted)]">&gt; message:</span>
+      </div>
       <textarea
-        id="message"
         name="message"
         required
-        rows="5"
-        placeholder="What's on your mind?"
-        class="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elev)] px-3 py-2.5 text-sm text-[var(--color-text)] placeholder:text-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-amber)]/40 transition resize-none"
+        rows="4"
+        placeholder="_"
+        class="bg-transparent border border-[var(--color-border)] focus:border-[var(--color-accent)] focus:outline-none text-[var(--color-text)] text-sm w-full p-2 caret-[var(--color-accent)] transition-colors placeholder:text-[var(--color-border)] resize-none"
       >{form?.message ?? ''}</textarea>
     </div>
 
     <button
       type="submit"
       disabled={submitting}
-      class="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--color-amber)] px-6 py-2.5 text-sm font-semibold text-[var(--color-bg)] hover:bg-[var(--color-amber-dim)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+      class="text-[var(--color-accent)] hover:underline underline-offset-4 text-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
     >
       {#if submitting}
-        <svg class="animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-        </svg>
-        Sending...
+        <span class="text-[var(--color-muted)]">sending...</span><BlinkingCursor />
       {:else}
-        Send Message
+        [send →]
       {/if}
     </button>
   </form>

@@ -1,21 +1,25 @@
 <script lang="ts">
-  import SectionHeading from '$lib/components/SectionHeading.svelte';
-  import SkillGroup from '$lib/components/SkillGroup.svelte';
+  import ShellPromptHeading from '$lib/components/terminal/ShellPromptHeading.svelte';
   import { skillGroups } from '$lib/data/skills';
 </script>
 
-<section id="skills" class="w-full py-20 border-t border-[var(--color-border)]">
-  <div class="mx-auto max-w-6xl px-6">
-    <SectionHeading
-      eyebrow="Toolbox"
-      title="Technologies"
-      subtitle="Languages, frameworks, and tools I work with."
-    />
+<section id="skills" class="w-full py-4 border-t border-[var(--color-border)]">
+  <div class="mx-auto max-w-[680px] px-6">
+    <ShellPromptHeading command="cat skills.json" />
 
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {#each skillGroups as group}
-        <SkillGroup {group} />
+    <div class="text-sm font-mono">
+      <span class="text-[var(--color-muted)]">{'{'}</span>
+      {#each skillGroups as group, i}
+        <div class="pl-4 leading-relaxed">
+          <span class="text-[var(--color-accent)]">"{group.title.toLowerCase().replace(/[\s/]/g, '_')}"</span>
+          <span class="text-[var(--color-muted)]">: [</span>
+          {#each group.items as item, j}
+            <span class="text-[var(--color-text)]">{item}</span>{#if j < group.items.length - 1}<span class="text-[var(--color-muted)]">, </span>{/if}
+          {/each}
+          <span class="text-[var(--color-muted)]">]{i < skillGroups.length - 1 ? ',' : ''}</span>
+        </div>
       {/each}
+      <span class="text-[var(--color-muted)]">{'}'}</span>
     </div>
   </div>
 </section>

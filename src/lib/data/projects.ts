@@ -1,7 +1,7 @@
 export interface Project {
   name: string;
   displayName: string;
-  repo: string;
+  repo: string | null;
   metric: string;
   description: string;
   tags: string[];
@@ -12,20 +12,20 @@ export const projects: Project[] = [
   {
     name: 'evo2_ft',
     displayName: 'Evo2 Fine-Tuning',
-    repo: 'https://github.com/l1joseph/evo2_ft',
-    metric: '40B-parameter genomic foundation model on long-read gut metagenomics',
+    repo: null,
+    metric: '40B-param genomic foundation model · AMD MI300A · paper in prep',
     description:
-      'Leading fine-tuning of Evo2, a 40B-parameter genomic foundation model, on PacBio HiFi long-read gut metagenomic data for strain-level functional prediction. Designed the pipeline end-to-end: HiFi tokenization, porting BioNeMo training to AMD ROCm for an MI300A HPC cluster, distributed training, and evaluation against 16S phylogenetic baselines. Master\'s thesis project.',
-    tags: ['Python', 'PyTorch', 'Evo2', 'ROCm', 'Kubernetes', 'metagenomics'],
+      "Leading fine-tuning of Evo2, a 40B-parameter genomic foundation model, on PacBio HiFi long-read gut metagenomic data for strain-level functional prediction and HGT network reconstruction. Ported BioNeMo training to AMD ROCm on an MI300A HPC cluster. Master's thesis project.",
+    tags: ['Python', 'PyTorch', 'Evo2', 'BioNeMo', 'ROCm', 'metagenomics'],
     featured: true
   },
   {
     name: 'qupid',
     displayName: 'Qupid',
     repo: 'https://github.com/gibsramen/qupid',
-    metric: '11.7% IBD effect-size increase. SD reduced from 0.30% to 0.02%.',
+    metric: '11.7% IBD effect-size increase (R² 1.38→1.54) · SD 0.30%→0.02%',
     description:
-      'Case-control matching tool for microbiome studies. Built with Scikit-Bio and QIIME 2. Demonstrated 11.7% IBD effect size increase (R² 1.38 to 1.54) in the American Gut Project and 13.5% improvement on HMP2 with dramatically reduced variance.',
+      'Case-control matching tool for microbiome studies. Demonstrated 11.7% IBD effect size increase in the American Gut Project and 13.5% improvement on HMP2 with dramatically reduced variance. Built with Scikit-Bio and QIIME 2. First-author paper in preparation.',
     tags: ['Python', 'Scikit-Bio', 'QIIME 2', 'microbiome', 'statistics'],
     featured: true
   },
@@ -33,9 +33,9 @@ export const projects: Project[] = [
     name: 'microbiome_mechinterp',
     displayName: 'q2-mechinterp',
     repo: 'https://github.com/l1joseph/microbiome_mechinterp',
-    metric: '96-taxon IBD signature identified from 3,000+ input features',
+    metric: '96-taxon IBD signature from 3,000+ features · paper in prep',
     description:
-      'QIIME2 plugin providing VAE-based mechanistic interpretability for metagenomic and transcriptomic data. Identified a sparse signature of 96 taxa characteristic of IBD, enabling biologically interpretable dimensionality reduction from over 3,000 input features.',
+      'QIIME2 plugin providing VAE-based mechanistic interpretability for metagenomic and transcriptomic data. Identified a sparse signature of 96 taxa characteristic of IBD from over 3,000 input features. Enables biologically interpretable dimensionality reduction.',
     tags: ['Python', 'QIIME2', 'VAE', 'PyTorch', 'interpretability'],
     featured: true
   },
@@ -43,50 +43,50 @@ export const projects: Project[] = [
     name: 'CMPipeline',
     displayName: 'CMPipeline',
     repo: 'https://github.com/l1joseph/CMPipeline',
-    metric: 'Nextflow pipeline processing 2,000+ cancer samples',
+    metric: '2,000+ cancer samples across CRC, ESCC, and other cancer types',
     description:
-      'Nextflow workflow for microbial characterization from cancer sequencing data. Analyzed 2,000+ samples across colorectal, esophageal squamous cell carcinoma, and other cancer types. Integrated human read filtration with taxonomic profiling via KrakenUniq and MetaPhlAn4.',
+      'Nextflow workflow for microbial characterization from cancer sequencing data. Integrated human read filtration with taxonomic profiling via KrakenUniq and MetaPhlAn4. Analyzed samples across colorectal, esophageal squamous cell carcinoma, and other cancer types.',
     tags: ['Nextflow', 'R', 'metagenomics', 'cancer', 'KrakenUniq'],
     featured: true
   },
   {
-    name: 'Multiscale_HRD_Classifier',
+    name: 'softHRD',
     displayName: 'softHRD',
     repo: 'https://github.com/l1joseph/Multiscale_HRD_Classifier',
-    metric: 'AACR 2026 poster. RNA-seq ML for HRD detection.',
+    metric: 'AACR Annual Meeting 2026 · UCSD BMES Bioengineering Day 2025',
     description:
-      'Machine learning model detecting Homologous Recombination Deficiency from RNA-seq data in breast and ovarian cancer. Uses autoencoders for mechanistic interpretability to identify genes from an RNA-seq panel associated with positive patient survival outcomes. Presented at AACR 2026 and BMES 2025.',
-    tags: ['Python', 'RNA-seq', 'Cancer Biology', 'autoencoder', 'ML'],
+      'ML model detecting Homologous Recombination Deficiency from RNA-seq data in breast and ovarian cancer. Autoencoder-based interpretability identifies gene signatures from RNA-seq panels linked to positive patient survival outcomes.',
+    tags: ['Python', 'RNA-seq', 'cancer', 'autoencoder', 'clinical ML'],
     featured: true
   },
   {
     name: 'knightGPT',
     displayName: 'knightGPT',
     repo: 'https://github.com/l1joseph/knightGPT',
-    metric: 'Knowledge graph RAG system for microbiome literature',
+    metric: 'Citation-grounded RAG over microbiome literature',
     description:
       'Microbiome-specific knowledge graph RAG system. Extracts entities (microbes, genes, metabolites, diseases) and relationships from research literature, enabling semantic querying and citation-grounded answers for metagenomic study design.',
     tags: ['Python', 'LLM', 'Graph-RAG', 'Ollama', 'NLP'],
     featured: false
   },
   {
-    name: 'IDEA',
-    displayName: 'IDEA',
-    repo: 'https://github.com/l1joseph/IDEA',
-    metric: 'Python equivalent to DESeq2',
+    name: 'cnv_transformer',
+    displayName: 'CNV Transformer',
+    repo: null,
+    metric: '700+ 1000 Genomes samples · outperforms existing WES methods',
     description:
-      'Interactive Differential Expression Analysis. Python package for differential expression analysis on gene expression data, designed as a Python equivalent to DESeq2. Supports standard RNA-seq workflows with visualization and statistical testing.',
-    tags: ['Python', 'DESeq2', 'RNA-seq', 'packaging'],
+      'Deep learning transformer for copy number variant detection from whole-exome sequencing data. Transfer-learning fine-tuned for somatic CNV calling in cancer samples. Integrates Parascopy for paralog-specific copy number estimation.',
+    tags: ['Python', 'transformer', 'CNV', 'WES', 'Parascopy'],
     featured: false
   },
   {
-    name: 'hive_mind_optimization',
-    displayName: 'Hive Mind Optimization',
-    repo: 'https://github.com/l1joseph/hive_mind_optimization',
-    metric: 'Particle Swarm Optimization for warehouse placement',
+    name: 'asd_microbiome',
+    displayName: 'ASD Microbiome Pipeline',
+    repo: null,
+    metric: 'Co-authored poster · Society for Biological Psychiatry 2025 · Toronto',
     description:
-      'Warehouse location optimizer using Particle Swarm Optimization. Finds optimal placement for a set of warehouses given stores and residential areas, balancing minimum distance from residential zones against maximum distance to stores.',
-    tags: ['Python', 'optimization', 'PSO', 'algorithms'],
+      'Cross-sectional shotgun metagenomics pipeline characterizing microbial composition, diversity, and differential abundances in Autism Spectrum Disorder fecal samples. Integrates BIRDMAn, Qiita, and QIIME2 with ML for pre-clinical diagnostic potential.',
+    tags: ['Python', 'metagenomics', 'ASD', 'BIRDMAn', 'QIIME2'],
     featured: false
   }
 ];

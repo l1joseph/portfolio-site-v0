@@ -1,12 +1,9 @@
-<script lang="ts">
-  import SocialLinks from './SocialLinks.svelte';
-</script>
-
-<footer class="w-full border-t border-[var(--color-border)] py-8 mt-16">
-  <div class="mx-auto max-w-6xl px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-sm text-[var(--color-muted)]">
-      &copy; {new Date().getFullYear()} Leo Joseph. All rights reserved.
-    </p>
-    <SocialLinks size={18} />
+<footer class="w-full border-t border-[var(--color-border)] py-8 mt-8">
+  <div class="mx-auto max-w-[680px] px-6 text-sm text-[var(--color-muted)]">
+    <div class="flex flex-wrap items-baseline gap-0 mb-1">
+      <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+      <span class="ml-2">exit</span>
+    </div>
+    <p>EOF · {new Date().getFullYear()} · <a href="https://leojjoseph.com" class="hover:text-[var(--color-accent)] hover:underline underline-offset-4 transition-colors">leojjoseph.com</a></p>
   </div>
 </footer>

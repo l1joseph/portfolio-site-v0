@@ -1,53 +1,73 @@
 <script lang="ts">
-  import AsciiBackground from '$lib/components/AsciiBackground.svelte';
-  import PhotoCarousel from '$lib/components/PhotoCarousel.svelte';
+  import AsciiNameBanner from '$lib/components/terminal/AsciiNameBanner.svelte';
+  import BlinkingCursor from '$lib/components/terminal/BlinkingCursor.svelte';
+  import Typewriter from '$lib/components/terminal/Typewriter.svelte';
   import { profile } from '$lib/data/profile';
 </script>
 
-<section id="hero" class="relative w-full min-h-[520px] md:min-h-[620px] py-20 md:py-32 overflow-hidden">
-  <AsciiBackground opacity={0.55} color="hsl(198, 100%, 65%)" class="absolute inset-0" />
+<section id="hero" class="w-full py-16 md:py-20">
+  <div class="mx-auto max-w-[680px] px-6">
 
-  <div class="relative z-10 mx-auto max-w-6xl px-6">
-    <div class="grid gap-10 lg:grid-cols-[1fr_420px] lg:gap-16 items-center">
-      <!-- Left: text -->
-      <div class="space-y-6">
-        <div class="space-y-4">
-          <h1 class="text-4xl sm:text-5xl xl:text-6xl font-bold tracking-tight text-[var(--color-text)] leading-[1.1]">
-            Hi, I'm <span class="text-[var(--color-amber)]">Leo Joseph</span>
-          </h1>
-          <p class="max-w-xl text-[var(--color-muted)] text-lg leading-relaxed">
-            {profile.tagline}
-          </p>
-          <p class="max-w-xl text-[var(--color-muted)] text-base leading-relaxed">
-            {profile.personal}
-          </p>
-        </div>
+    <!-- ASCII name banner -->
+    <div class="w-full h-[100px] sm:h-[130px] mb-8">
+      <AsciiNameBanner text="LEO JOSEPH" />
+    </div>
 
-        <div class="flex flex-col gap-3 min-[400px]:flex-row">
-          <a
-            href="#projects"
-            class="inline-flex h-10 items-center justify-center rounded-lg bg-[var(--color-amber)] px-6 text-sm font-semibold text-[var(--color-bg)] hover:bg-[var(--color-amber-dim)] transition-colors"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            class="inline-flex h-10 items-center justify-center rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-elev)] px-6 text-sm font-semibold text-[var(--color-text)] hover:border-[var(--color-amber)]/40 hover:text-[var(--color-amber)] transition-colors"
-          >
-            Contact Me
-          </a>
-        </div>
-
-        <p class="font-mono text-xs text-[var(--color-muted)] flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-[var(--color-amber)] animate-pulse"></span>
-          {profile.role} · {profile.location}
-        </p>
+    <!-- whoami -->
+    <div class="mb-5">
+      <div class="flex flex-wrap items-baseline gap-0">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-text)] ml-2">
+          <Typewriter text="whoami" trigger="mount" speed={40} />
+        </span>
       </div>
-
-      <!-- Right: photo carousel -->
-      <div class="relative h-[300px] sm:h-[360px] lg:h-[500px] w-full">
-        <PhotoCarousel />
+      <div class="mt-1 text-sm">
+        <span class="text-[var(--color-text)]">{profile.name}</span>
+        <span class="text-[var(--color-muted)]"> — {profile.role}</span>
       </div>
     </div>
+
+    <!-- tagline -->
+    <div class="mb-5">
+      <div class="flex flex-wrap items-baseline gap-0">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">cat tagline.txt</span>
+      </div>
+      <div class="mt-1 text-sm leading-relaxed text-[var(--color-muted)] max-w-[560px]">
+        <p>{profile.tagline}</p>
+        <p class="mt-2">{profile.personal}</p>
+      </div>
+    </div>
+
+    <!-- location -->
+    <div class="mb-5">
+      <div class="flex flex-wrap items-baseline gap-0">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">echo $LOCATION</span>
+      </div>
+      <div class="mt-1 text-sm text-[var(--color-muted)]">{profile.location}</div>
+    </div>
+
+    <!-- ls navigation -->
+    <div class="mb-6">
+      <div class="flex flex-wrap items-baseline gap-0">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">ls</span>
+      </div>
+      <div class="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+        {#each [['projects', '#projects'], ['publications', '#publications'], ['skills', '#skills'], ['about', '#about'], ['contact', '#contact']] as [label, href]}
+          <a {href} class="text-[var(--color-accent)] hover:underline underline-offset-4 decoration-[var(--color-accent)]">
+            {label}/
+          </a>
+        {/each}
+      </div>
+    </div>
+
+    <!-- trailing prompt with cursor -->
+    <div class="flex items-baseline gap-0">
+      <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+      <span class="ml-2"><BlinkingCursor /></span>
+    </div>
+
   </div>
 </section>

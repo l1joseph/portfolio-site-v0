@@ -1,81 +1,71 @@
 <script lang="ts">
-  import SectionHeading from '$lib/components/SectionHeading.svelte';
-  import { bio, education, researchExperience, industryExperience, coursework } from '$lib/data/about';
+  import ShellPromptHeading from '$lib/components/terminal/ShellPromptHeading.svelte';
+  import { bio, education, researchExperience, industryExperience } from '$lib/data/about';
 </script>
 
-<section id="about" class="w-full py-20 border-t border-[var(--color-border)]">
-  <div class="mx-auto max-w-6xl px-6">
-    <SectionHeading eyebrow="About Me" title="Background" />
+<section id="about" class="w-full py-4 border-t border-[var(--color-border)]">
+  <div class="mx-auto max-w-[680px] px-6">
 
-    <div class="grid gap-12 md:grid-cols-2">
-      <!-- Left: bio -->
-      <div class="space-y-5">
-        {#each bio as paragraph}
-          <p class="text-[var(--color-muted)] leading-relaxed">{paragraph}</p>
-        {/each}
+    <!-- bio -->
+    <ShellPromptHeading command="cat about.md" />
+    <div class="space-y-3 text-sm text-[var(--color-muted)] leading-relaxed mb-8">
+      {#each bio as paragraph}
+        <p>{paragraph}</p>
+      {/each}
+    </div>
 
-        <!-- Education -->
-        <div class="pt-2 space-y-4">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Education</h3>
-          {#each education as edu}
-            <div class="space-y-0.5">
-              <p class="font-medium text-[var(--color-text)] text-sm">{edu.school}</p>
-              <p class="text-sm text-[var(--color-muted)]">{edu.degree}</p>
-              <p class="text-sm text-[var(--color-muted)]">{edu.period}</p>
-              {#if edu.note}
-                <p class="font-mono text-xs text-[var(--color-amber)]">{edu.note}</p>
-              {/if}
-            </div>
-          {/each}
-        </div>
+    <!-- education -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-baseline gap-0 mb-3">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">cat education.txt</span>
       </div>
-
-      <!-- Right: experience + coursework -->
-      <div class="space-y-8">
-        <!-- Research -->
-        <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Research Experience</h3>
-          {#each researchExperience as exp}
-            <div class="flex gap-3 group">
-              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-amber)] shrink-0"></div>
-              <div class="space-y-0.5">
-                <p class="font-medium text-[var(--color-text)] text-sm">{exp.lab}
-                  <span class="font-normal text-[var(--color-muted)]">· {exp.pi}</span>
-                </p>
-                <p class="text-sm text-[var(--color-muted)]">{exp.institution} · {exp.period}</p>
-                <p class="text-xs text-[var(--color-muted)]">{exp.focus}</p>
-              </div>
-            </div>
-          {/each}
-        </div>
-
-        <!-- Industry -->
-        <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Industry Experience</h3>
-          {#each industryExperience as exp}
-            <div class="flex gap-3">
-              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-cobalt-lit)] shrink-0"></div>
-              <div class="space-y-0.5">
-                <p class="font-medium text-[var(--color-text)] text-sm">{exp.company}</p>
-                <p class="text-sm text-[var(--color-muted)]">{exp.role} · {exp.period}</p>
-              </div>
-            </div>
-          {/each}
-        </div>
-
-        <!-- Coursework -->
-        <div class="space-y-3">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Relevant Coursework</h3>
-          <ul class="space-y-1">
-            {#each coursework as course}
-              <li class="text-sm text-[var(--color-muted)] flex items-center gap-2">
-                <span class="text-[var(--color-amber)]">—</span>
-                {course}
-              </li>
-            {/each}
-          </ul>
-        </div>
+      <div class="space-y-2 text-sm pl-0">
+        {#each education as edu}
+          <div class="flex flex-wrap gap-x-3 gap-y-0.5">
+            <span class="text-[var(--color-muted)] shrink-0">{edu.period}</span>
+            <span class="text-[var(--color-text)]">{edu.degree}</span>
+            <span class="text-[var(--color-muted)]">· {edu.school}</span>
+            {#if edu.note}<span class="text-[var(--color-accent)] text-xs w-full pl-0">{edu.note}</span>{/if}
+          </div>
+        {/each}
       </div>
     </div>
+
+    <!-- research experience -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-baseline gap-0 mb-3">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">ls experience/research/</span>
+      </div>
+      <div class="space-y-2 text-sm">
+        {#each researchExperience as exp}
+          <div class="flex flex-wrap gap-x-3 gap-y-0.5">
+            <span class="text-[var(--color-accent)] shrink-0">— {exp.lab}</span>
+            <span class="text-[var(--color-muted)]">· {exp.pi}</span>
+            <span class="text-[var(--color-muted)] ml-auto text-xs">{exp.period}</span>
+            <span class="text-[var(--color-muted)] text-xs w-full pl-4">{exp.focus}</span>
+          </div>
+        {/each}
+      </div>
+    </div>
+
+    <!-- industry experience -->
+    <div class="mb-4">
+      <div class="flex flex-wrap items-baseline gap-0 mb-3">
+        <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
+        <span class="text-[var(--color-muted)] ml-2 text-sm">ls experience/industry/</span>
+      </div>
+      <div class="space-y-2 text-sm">
+        {#each industryExperience as exp}
+          <div class="flex flex-wrap gap-x-3 gap-y-0.5">
+            <span class="text-[var(--color-accent)] shrink-0">— {exp.company}</span>
+            <span class="text-[var(--color-muted)]">· {exp.role}</span>
+            <span class="text-[var(--color-muted)] ml-auto text-xs">{exp.period}</span>
+          </div>
+        {/each}
+      </div>
+    </div>
+
   </div>
 </section>
