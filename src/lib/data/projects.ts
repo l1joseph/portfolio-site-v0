@@ -15,7 +15,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/l1joseph/evo2_ft',
     metric: '40B-parameter genomic foundation model on long-read gut metagenomics',
     description:
-      'Leading fine-tuning of Evo2, a 40B-parameter genomic foundation model, on PacBio HiFi long-read gut metagenomic data for strain-level functional prediction. Designed the pipeline end-to-end: HiFi tokenization, porting BioNeMo training to AMD ROCm for an MI300A HPC cluster, distributed training, and evaluation against 16S phylogenetic baselines. Master\'s thesis project.',
+      "Leading fine-tuning of Evo2, a 40B-parameter genomic foundation model, on PacBio HiFi long-read gut metagenomic data for strain-level functional prediction and HGT network reconstruction. Ported BioNeMo training to AMD ROCm on an MI300A HPC cluster. Master's thesis project.",
     tags: ['Python', 'PyTorch', 'Evo2', 'ROCm', 'Kubernetes', 'metagenomics'],
     featured: true
   },
