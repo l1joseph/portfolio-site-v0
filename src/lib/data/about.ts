@@ -1,7 +1,7 @@
 export const bio = [
   "I'm an MS Bioinformatics student at UC San Diego. I build computational tools that turn raw sequencing data into biological insight.",
-  'At the Knight Lab I develop deep learning methods to unlock new metagenomic analyses, with a focus on ASD and IBD. At the Alexandrov Lab I work on cancer genomics, developing methods for characterizing tumor biology from sequencing data. My work sits at the intersection of production bioinformatics pipelines and machine learning on real biological data.',
-  'For current projects and publications, see the sections below.'
+  'At the Knight Lab I develop deep learning methods to unlock new metagenomic analyses, with a focus on ASD and IBD. At the Alexandrov Lab I work on cancer genomics, developing methods for characterizing tumor biology from sequencing data.',
+  'My focus is on designing novel deep learning architectures that make previously intractable biological questions answerable.'
 ];
 
 export const education = [

@@ -5,7 +5,7 @@
 </script>
 
 <section id="projects" class="w-full py-4 border-t border-[var(--color-border)]">
-  <div class="mx-auto max-w-[680px] px-6">
+  <div class="px-6">
     <ShellPromptHeading command="ls -la projects/" />
     {#each projects as project, i}
       <ProjectLine {project} index={i} />

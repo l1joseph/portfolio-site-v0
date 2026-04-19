@@ -186,42 +186,45 @@
       const allWidths = Object.values(widthMap).filter(v => v > 0);
       const avgW = allWidths.reduce((a, b) => a + b, 0) / allWidths.length;
 
-      // Render text to off-screen canvas for luminance sampling
-      const off = document.createElement('canvas');
-      off.width  = w;
-      off.height = h;
-      const offCtx = off.getContext('2d')!;
-      offCtx.fillStyle = '#000000';
-      offCtx.fillRect(0, 0, w, h);
-      offCtx.fillStyle = '#ffffff';
-      offCtx.font = measureFont;
-      offCtx.textAlign = 'center';
-      offCtx.textBaseline = 'middle';
-      // Scale font to fit width
-      const measured = offCtx.measureText(_text);
-      const scale = Math.min(1, (w * 0.95) / measured.width);
-      const fitFont = `bold ${Math.floor(120 * scale)}px "Bricolage Grotesque Variable", ui-sans-serif, sans-serif`;
-      offCtx.font = fitFont;
-      offCtx.fillText(_text, w / 2, h / 2);
-
-      // Sample luminance from off-screen canvas
       const cols = Math.max(1, Math.floor(w / avgW));
       const rows = Math.max(1, Math.floor(h / LINE_HEIGHT));
-      const { data } = offCtx.getImageData(0, 0, w, h);
+
+      // Draw text to a full-size off-screen canvas
+      const textCanvas = document.createElement('canvas');
+      textCanvas.width  = w;
+      textCanvas.height = h;
+      const textCtx = textCanvas.getContext('2d')!;
+      textCtx.fillStyle = '#000';
+      textCtx.fillRect(0, 0, w, h);
+      textCtx.fillStyle = '#fff';
+      textCtx.font = measureFont;
+      textCtx.textAlign = 'center';
+      textCtx.textBaseline = 'middle';
+      // Scale font down if text wider than canvas
+      const rawWidth = textCtx.measureText(_text).width;
+      const scale = Math.min(1, (w * 0.92) / Math.max(rawWidth, 1));
+      const fitFont = `bold ${Math.floor(120 * scale)}px "Bricolage Grotesque Variable", ui-sans-serif, sans-serif`;
+      textCtx.font = fitFont;
+      textCtx.fillText(_text, w / 2, h / 2);
+
+      // Downsample to cols×rows — each pixel becomes area-averaged luminance for its grid cell
+      const sampCanvas = document.createElement('canvas');
+      sampCanvas.width  = cols;
+      sampCanvas.height = rows;
+      const sampCtx = sampCanvas.getContext('2d')!;
+      sampCtx.drawImage(textCanvas, 0, 0, cols, rows);
+      const { data } = sampCtx.getImageData(0, 0, cols, rows);
 
       cells = [];
       for (let row = 0; row < rows; row++) {
         let x = 0;
         for (let col = 0; col < cols; col++) {
-          // Sample pixel luminance at this grid cell
-          const px = Math.min(w - 1, Math.floor((col + 0.5) * avgW));
-          const py = Math.min(h - 1, Math.floor((row + 0.5) * LINE_HEIGHT));
-          const o  = (py * w + px) * 4;
+          const o = (row * cols + col) * 4;
           const lum = 0.2126 * (data[o] / 255) + 0.7152 * (data[o + 1] / 255) + 0.0722 * (data[o + 2] / 255);
 
-          if (lum < 0.08) { x += avgW; continue; }
+          if (lum < 0.04) { x += avgW; continue; }
 
-          const ch = mapLuminanceToChar(lum, _ramp);
+          const ch = mapLuminanceToChar(1 - lum, _ramp);
           const cw = widthMap[ch] ?? avgW;
           if (ch !== ' ') {
             cells.push({ char: ch, bx: x, by: (row + 1) * LINE_HEIGHT, x, y: (row + 1) * LINE_HEIGHT, vx: 0, vy: 0, lum });

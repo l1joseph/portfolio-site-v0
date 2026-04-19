@@ -13,10 +13,10 @@ export const projects: Project[] = [
     name: 'evo2_ft',
     displayName: 'Evo2 Fine-Tuning',
     repo: null,
-    metric: '40B-param genomic foundation model · AMD MI300A · paper in prep',
+    metric: '40B-param genomic foundation model · AMD MI300A',
     description:
       "Leading fine-tuning of Evo2, a 40B-parameter genomic foundation model, on PacBio HiFi long-read gut metagenomic data for strain-level functional prediction and HGT network reconstruction. Ported BioNeMo training to AMD ROCm on an MI300A HPC cluster. Master's thesis project.",
-    tags: ['Python', 'PyTorch', 'Evo2', 'BioNeMo', 'ROCm', 'metagenomics'],
+    tags: ['Python', 'PyTorch'],
     featured: true
   },
   {
@@ -25,7 +25,7 @@ export const projects: Project[] = [
     repo: 'https://github.com/gibsramen/qupid',
     metric: '11.7% IBD effect-size increase (R² 1.38→1.54) · SD 0.30%→0.02%',
     description:
-      'Case-control matching tool for microbiome studies. Demonstrated 11.7% IBD effect size increase in the American Gut Project and 13.5% improvement on HMP2 with dramatically reduced variance. Built with Scikit-Bio and QIIME 2. First-author paper in preparation.',
+      'Case-control matching tool for microbiome studies. Demonstrated 11.7% IBD effect size increase in the American Gut Project and 13.5% improvement on HMP2 with dramatically reduced variance. Built with Scikit-Bio and QIIME 2.',
     tags: ['Python', 'Scikit-Bio', 'QIIME 2', 'microbiome', 'statistics'],
     featured: true
   },
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     name: 'microbiome_mechinterp',
     displayName: 'q2-mechinterp',
     repo: 'https://github.com/l1joseph/microbiome_mechinterp',
-    metric: '96-taxon IBD signature from 3,000+ features · paper in prep',
+    metric: '96-taxon IBD signature from 3,000+ features',
     description:
       'QIIME2 plugin providing VAE-based mechanistic interpretability for metagenomic and transcriptomic data. Identified a sparse signature of 96 taxa characteristic of IBD from over 3,000 input features. Enables biologically interpretable dimensionality reduction.',
     tags: ['Python', 'QIIME2', 'VAE', 'PyTorch', 'interpretability'],
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     metric: 'Citation-grounded RAG over microbiome literature',
     description:
       'Microbiome-specific knowledge graph RAG system. Extracts entities (microbes, genes, metabolites, diseases) and relationships from research literature, enabling semantic querying and citation-grounded answers for metagenomic study design.',
-    tags: ['Python', 'LLM', 'Graph-RAG', 'Ollama', 'NLP'],
+    tags: ['Python', 'Graph-RAG'],
     featured: false
   },
   {

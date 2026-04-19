@@ -4,7 +4,7 @@
 </script>
 
 <section id="skills" class="w-full py-4 border-t border-[var(--color-border)]">
-  <div class="mx-auto max-w-[680px] px-6">
+  <div class="px-6">
     <ShellPromptHeading command="cat skills.json" />
 
     <div class="text-sm font-mono">
