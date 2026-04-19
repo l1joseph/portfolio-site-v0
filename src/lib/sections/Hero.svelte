@@ -7,6 +7,11 @@
   const photoModules = import.meta.glob('$lib/assets/photos/*.{png,jpg,jpeg,webp,JPG,JPEG,PNG,HEIC}', { eager: true }) as Record<string, { default: string }>;
   const photos = Object.values(photoModules).map(m => m.default);
 
+  function objectPosition(src: string): string {
+    if (src.includes('Leo_softHRD_BE_Day')) return 'left center';
+    return 'center';
+  }
+
   let current = $state(0);
 
   $effect(() => {
@@ -33,7 +38,7 @@
               {src}
               alt="Leo Joseph"
               class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-              style="opacity: {i === current ? 1 : 0}; filter: grayscale(100%) sepia(15%) hue-rotate(190deg) saturate(250%) contrast(1.05);"
+              style="opacity: {i === current ? 1 : 0}; filter: grayscale(100%) sepia(15%) hue-rotate(190deg) saturate(250%) contrast(1.05); object-position: {objectPosition(src)};"
             />
           {/each}
         </div>
@@ -119,7 +124,7 @@
                 {src}
                 alt="Leo Joseph"
                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
-                style="opacity: {i === current ? 1 : 0}; filter: grayscale(100%) sepia(15%) hue-rotate(190deg) saturate(250%) contrast(1.05);"
+                style="opacity: {i === current ? 1 : 0}; filter: grayscale(100%) sepia(15%) hue-rotate(190deg) saturate(250%) contrast(1.05); object-position: {objectPosition(src)};"
               />
             {/each}
           </div>
