@@ -222,7 +222,7 @@
           const o = (row * cols + col) * 4;
           const lum = 0.2126 * (data[o] / 255) + 0.7152 * (data[o + 1] / 255) + 0.0722 * (data[o + 2] / 255);
 
-          if (lum < 0.04) { x += avgW; continue; }
+          if (lum < 0.01) { x += avgW; continue; }
 
           const ch = mapLuminanceToChar(1 - lum, _ramp);
           const cw = widthMap[ch] ?? avgW;

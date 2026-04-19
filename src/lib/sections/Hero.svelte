@@ -25,7 +25,7 @@
   <div class="px-6">
 
     <!-- ASCII name banner — always full width -->
-    <div class="w-full h-[140px] sm:h-[180px] mb-8">
+    <div class="w-full h-[160px] sm:h-[180px] mb-8">
       <AsciiNameBanner text="LEO JOSEPH" />
     </div>
 
