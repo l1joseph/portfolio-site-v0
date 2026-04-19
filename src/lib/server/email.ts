@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { RESEND_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 interface ContactEmailParams {
   name: string;
@@ -9,7 +9,7 @@ interface ContactEmailParams {
 }
 
 export async function sendContactEmail({ name, email, message, to }: ContactEmailParams) {
-  const resend = new Resend(RESEND_API_KEY);
+  const resend = new Resend(env.RESEND_API_KEY);
 
   await resend.emails.send({
     from: 'Portfolio Contact <onboarding@resend.dev>',

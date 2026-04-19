@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import { CONTACT_TO_EMAIL } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 import { sendContactEmail } from '$lib/server/email';
 
 // Simple in-memory rate limiter: 3 messages per IP per 10 minutes
@@ -58,7 +58,7 @@ export const actions: Actions = {
     }
 
     try {
-      await sendContactEmail({ name, email, message, to: CONTACT_TO_EMAIL });
+      await sendContactEmail({ name, email, message, to: env.CONTACT_TO_EMAIL });
       return { success: true };
     } catch (err) {
       console.error('Email send failed:', err);
