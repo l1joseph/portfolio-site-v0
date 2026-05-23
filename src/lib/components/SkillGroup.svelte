@@ -9,7 +9,7 @@
   <div class="flex flex-wrap gap-1.5">
     {#each group.items as item}
       <span
-        class="text-xs px-2.5 py-1 rounded-md bg-[var(--color-bg-elev)] text-[var(--color-muted)] border border-[var(--color-border)] hover:border-[var(--color-amber)]/40 hover:text-[var(--color-text)] transition-colors cursor-default"
+        class="text-xs px-2.5 py-1 rounded-md bg-[var(--color-bg-elev)] text-[var(--color-muted)] border border-[var(--color-border)] hover:border-[var(--color-azure)]/40 hover:text-[var(--color-text)] transition-colors"
       >
         {item}
       </span>

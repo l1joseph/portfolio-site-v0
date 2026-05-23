@@ -56,22 +56,23 @@
 
 <article
   bind:this={cardEl}
-  class="group relative flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 transition-all duration-200 hover:border-[var(--color-amber)]/40 hover:shadow-lg hover:-translate-y-0.5"
+  class="group relative flex flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] p-6 transition-[border-color,box-shadow,transform] duration-200 cursor-pointer hover:border-[var(--color-azure)]/40 hover:shadow-lg hover:-translate-y-0.5"
 >
   <!-- Amber top accent on hover -->
-  <div class="absolute inset-x-0 top-0 h-[2px] rounded-t-xl bg-[var(--color-amber)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <div class="absolute inset-x-0 top-0 h-[2px] rounded-t-xl bg-[var(--color-azure)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
   {#if project.featured}
-    <span class="mb-3 self-start font-mono text-[10px] uppercase tracking-widest text-[var(--color-amber)] px-2 py-0.5 rounded border border-[var(--color-amber)]/30 bg-[var(--color-amber)]/5">
+    <span class="mb-3 self-start font-mono text-[10px] uppercase tracking-widest text-[var(--color-azure)] px-2 py-0.5 rounded border border-[var(--color-azure)]/30 bg-[var(--color-azure)]/5">
       Featured
     </span>
   {/if}
 
   <h3 class="text-lg font-semibold text-[var(--color-text)] mb-1">{project.displayName}</h3>
 
-  <p class="font-mono text-xs text-[var(--color-amber)] mb-3 leading-relaxed">{project.metric}</p>
+  <p class="font-mono text-xs text-[var(--color-azure)] mb-3 leading-relaxed">{project.metric}</p>
 
-  <p class="text-sm text-[var(--color-muted)] leading-relaxed flex-1">{descOverride ?? project.description}</p>
+  <p class="text-sm text-[var(--color-muted)] leading-relaxed flex-1" aria-hidden={descOverride !== null}>{descOverride ?? project.description}</p>
+  {#if descOverride !== null}<p class="sr-only">{project.description}</p>{/if}
 
   <div class="mt-4 flex flex-wrap gap-1.5">
     {#each project.tags as tag}
@@ -85,7 +86,7 @@
     href={project.repo}
     target="_blank"
     rel="noopener noreferrer"
-    class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-cobalt-lit)] hover:text-[var(--color-amber)] transition-colors"
+    class="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-cobalt-lit)] hover:text-[var(--color-azure)] transition-colors after:absolute after:inset-0 after:content-['']"
   >
     View on GitHub
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

@@ -77,7 +77,7 @@
     {/key}
 
     <!-- Ring on hover -->
-    <div class="absolute inset-0 rounded-xl ring-1 ring-[var(--color-amber)]/0 hover:ring-[var(--color-amber)]/30 transition-all pointer-events-none"></div>
+    <div class="absolute inset-0 rounded-xl ring-1 ring-[var(--color-azure)]/0 hover:ring-[var(--color-azure)]/30 transition-all pointer-events-none"></div>
 
     <!-- Dot indicators -->
     {#if photos.length > 1}
@@ -86,7 +86,7 @@
           <button
             onclick={(e) => { e.stopPropagation(); currentIndex = i; }}
             aria-label="Photo {i + 1}"
-            class="h-1.5 rounded-full transition-all {i === currentIndex ? 'bg-[var(--color-amber)] w-3' : 'bg-white/40 w-1.5'}"
+            class="h-1.5 rounded-full transition-all {i === currentIndex ? 'bg-[var(--color-azure)] w-3' : 'bg-white/40 w-1.5'}"
           ></button>
         {/each}
       </div>

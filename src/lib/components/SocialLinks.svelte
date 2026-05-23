@@ -20,7 +20,7 @@
       target={href.startsWith('mailto') ? undefined : '_blank'}
       rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
       aria-label={label}
-      class="p-2 rounded-md text-[var(--color-muted)] hover:text-[var(--color-amber)] hover:bg-[var(--color-bg-elev)] transition-colors"
+      class="p-2 rounded-md text-[var(--color-muted)] hover:text-[var(--color-azure)] hover:bg-[var(--color-bg-elev)] transition-colors"
     >
       <Icon {size} />
     </a>

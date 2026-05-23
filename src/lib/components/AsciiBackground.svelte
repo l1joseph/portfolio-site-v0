@@ -116,7 +116,7 @@
     function readThemeColor(): string {
       if (_color) return _color;
       return (
-        getComputedStyle(document.documentElement).getPropertyValue('--color-amber').trim() ||
+        getComputedStyle(document.documentElement).getPropertyValue('--color-azure').trim() ||
         'hsl(198, 70%, 48%)'
       );
     }

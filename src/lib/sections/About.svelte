@@ -23,7 +23,7 @@
               <p class="text-sm text-[var(--color-muted)]">{edu.degree}</p>
               <p class="text-sm text-[var(--color-muted)]">{edu.period}</p>
               {#if edu.note}
-                <p class="font-mono text-xs text-[var(--color-amber)]">{edu.note}</p>
+                <p class="font-mono text-xs text-[var(--color-azure)]">{edu.note}</p>
               {/if}
             </div>
           {/each}
@@ -34,10 +34,10 @@
       <div class="space-y-8">
         <!-- Research -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Research Experience</h3>
+          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider flex items-center gap-2">Research Experience<span class="w-2 h-2 rounded-full bg-[var(--color-azure)] inline-block" title="azure dot = research"></span></h3>
           {#each researchExperience as exp}
             <div class="flex gap-3 group">
-              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-amber)] shrink-0"></div>
+              <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-azure)] shrink-0"></div>
               <div class="space-y-0.5">
                 <p class="font-medium text-[var(--color-text)] text-sm">{exp.lab}
                   <span class="font-normal text-[var(--color-muted)]">· {exp.pi}</span>
@@ -51,7 +51,7 @@
 
         <!-- Industry -->
         <div class="space-y-4">
-          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider">Industry Experience</h3>
+          <h3 class="text-sm font-semibold text-[var(--color-text)] font-mono uppercase tracking-wider flex items-center gap-2">Industry Experience<span class="w-2 h-2 rounded-full bg-[var(--color-cobalt-lit)] inline-block" title="cobalt dot = industry"></span></h3>
           {#each industryExperience as exp}
             <div class="flex gap-3">
               <div class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-cobalt-lit)] shrink-0"></div>
@@ -69,7 +69,7 @@
           <ul class="space-y-1">
             {#each coursework as course}
               <li class="text-sm text-[var(--color-muted)] flex items-center gap-2">
-                <span class="text-[var(--color-amber)]">—</span>
+                <span class="text-[var(--color-azure)]">—</span>
                 {course}
               </li>
             {/each}

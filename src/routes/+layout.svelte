@@ -16,6 +16,7 @@
   });
 </script>
 
+<a href="#hero" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-3 focus:py-1 focus:bg-[var(--color-bg-elev)] focus:text-[var(--color-azure)] focus:text-sm focus:rounded">Skip to content</a>
 <div class="min-h-screen flex flex-col bg-[var(--color-bg)]">
   <Nav />
   <main class="flex-1">

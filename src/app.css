@@ -12,9 +12,9 @@
   --color-bg-elev:    hsl(210, 100%, 9%);
   --color-bg-card:    hsl(210, 100%, 12%);
   --color-text:       hsl(180, 100%, 90%);
-  --color-muted:      hsl(200, 35%, 55%);
-  --color-amber:      hsl(198, 70%, 48%);
-  --color-amber-dim:  hsl(198, 60%, 38%);
+  --color-muted:      hsl(200, 35%, 62%);
+  --color-azure:      hsl(198, 70%, 48%);
+  --color-azure-dim:  hsl(198, 60%, 38%);
   --color-cobalt:     hsl(200, 100%, 20%);
   --color-cobalt-lit: hsl(200, 80%, 32%);
   --color-border:     hsl(210, 60%, 18%);
@@ -27,8 +27,8 @@
   --color-bg-card:    #ffffff;
   --color-text:       hsl(210, 60%, 12%);
   --color-muted:      hsl(210, 25%, 42%);
-  --color-amber:      hsl(198, 70%, 38%);
-  --color-amber-dim:  hsl(198, 60%, 28%);
+  --color-azure:      hsl(198, 70%, 38%);
+  --color-azure-dim:  hsl(198, 60%, 28%);
   --color-cobalt:     hsl(200, 80%, 22%);
   --color-cobalt-lit: hsl(200, 70%, 34%);
   --color-border:     hsl(210, 25%, 80%);
@@ -53,16 +53,17 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Subtle grid backdrop on hero */
-.grid-backdrop {
-  background-image:
-    linear-gradient(rgba(38, 165, 204, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(38, 165, 204, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Focus visibility */
+*:focus-visible {
+  outline: 2px solid var(--color-azure);
+  outline-offset: 2px;
+}
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-amber-dim); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-azure-dim); }
