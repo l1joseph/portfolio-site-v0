@@ -1,6 +1,6 @@
 <script lang="ts">
   import AsciiNameBanner from '$lib/components/terminal/AsciiNameBanner.svelte';
-  import BlinkingCursor from '$lib/components/terminal/BlinkingCursor.svelte';
+  import Shell from '$lib/components/terminal/Shell.svelte';
   import Typewriter from '$lib/components/terminal/Typewriter.svelte';
   import { profile } from '$lib/data/profile';
 
@@ -25,7 +25,7 @@
   <div class="px-6">
 
     <!-- ASCII name banner — always full width -->
-    <div class="w-full h-[160px] sm:h-[180px] mb-8">
+    <div class="w-full h-[110px] sm:h-[180px] mb-8">
       <AsciiNameBanner text="LEO JOSEPH" />
     </div>
 
@@ -70,7 +70,7 @@
             <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
             <span class="text-[var(--color-muted)] ml-2 text-sm">cat tagline.txt</span>
           </div>
-          <div class="mt-1 text-sm leading-relaxed text-[var(--color-muted)] max-w-[560px]">
+          <div class="mt-1 pl-2 text-sm leading-relaxed text-[var(--color-muted)] max-w-[560px]">
             <p>{profile.tagline}</p>
             <p class="mt-2">{profile.personal}</p>
           </div>
@@ -99,25 +99,22 @@
             {/each}
           </div>
           <div class="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-            {#each [['github↗', profile.socials.github], ['linkedin↗', profile.socials.linkedin], ['scholar↗', profile.socials.scholar]] as [label, href]}
+            {#each [['github', profile.socials.github], ['linkedin', profile.socials.linkedin], ['scholar', profile.socials.scholar]] as [label, href]}
               <a {href} target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent)] hover:underline underline-offset-4 decoration-[var(--color-accent)]">
-                {label}/
+                {label}<span class="text-[var(--color-muted)] text-xs ml-0.5">[ext]</span>
               </a>
             {/each}
           </div>
         </div>
 
-        <!-- trailing prompt with cursor -->
-        <div class="flex items-baseline gap-0">
-          <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
-          <span class="ml-2"><BlinkingCursor /></span>
-        </div>
+        <!-- interactive shell -->
+        <Shell />
 
       </div>
 
       <!-- Landscape photo panel -->
       {#if photos.length > 0}
-        <div class="hidden md:block shrink-0 w-48 lg:w-56 mr-[15%]">
+        <div class="hidden md:block shrink-0 w-48 lg:w-56 mr-0 xl:mr-[15%]">
           <div class="relative overflow-hidden" style="aspect-ratio: 3/4;">
             {#each photos as src, i}
               <img

@@ -80,8 +80,8 @@
   <div class="mt-0.5 pl-8 text-xs text-[var(--color-muted)] leading-relaxed">
     <span class="text-[var(--color-border)] select-none">↳ </span>{descOverride ?? project.description}
   </div>
-  <!-- Mobile metric -->
+  <!-- Mobile metric (truncate to first stat before · or () -->
   <div class="mt-0.5 pl-8 text-xs text-[var(--color-muted)] sm:hidden">
-    {project.metric}
+    {project.metric.split(/\s+[·(]/)[0]}
   </div>
 </div>

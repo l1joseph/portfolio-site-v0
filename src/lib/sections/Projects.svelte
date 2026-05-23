@@ -9,13 +9,13 @@
 
 <section id="projects" class="w-full py-4 border-t border-[var(--color-border)]">
   <div class="px-6">
-    <ShellPromptHeading command="ls -la projects/research" />
+    <ShellPromptHeading command="ls projects/research/" />
     {#each research as project, i}
       <ProjectLine {project} index={i} />
     {/each}
 
     <div class="mt-8">
-      <ShellPromptHeading command="ls -la projects/fun" />
+      <ShellPromptHeading command="ls projects/fun/" />
       {#each fun as project, i}
         <ProjectLine {project} index={i} />
       {/each}

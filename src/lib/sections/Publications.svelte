@@ -11,12 +11,12 @@
       {#each publications as pub}
         <div class="text-sm leading-relaxed">
           <div class="flex items-baseline gap-2 flex-wrap mb-0.5">
-            <span class="text-[var(--color-accent)] text-xs font-medium shrink-0">
+            <span class="text-[var(--color-muted)] text-xs shrink-0">
               [{pub.type}·{pub.status === 'in-prep' ? 'in-prep' : pub.venue.split('·')[0].trim().replace(/\s+/g, '')}]
             </span>
             <span class="text-[var(--color-muted)] text-xs">{pub.authors}</span>
           </div>
-          <div class="text-[var(--color-text)] pl-0">{pub.title}</div>
+          <div class="text-[var(--color-text)] font-medium pl-0">{pub.title}</div>
           <div class="text-[var(--color-muted)] text-xs mt-0.5">{pub.venue} · {pub.year}</div>
         </div>
       {/each}

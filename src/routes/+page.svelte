@@ -14,6 +14,7 @@
   <title>Leo Joseph</title>
 </svelte:head>
 
+<h1 class="sr-only">Leo Joseph</h1>
 <Hero />
 <Projects />
 <Publications />

@@ -28,7 +28,7 @@
       <span class="text-[var(--color-prompt)] select-none">leo@joseph</span><span class="text-[var(--color-muted)] select-none">:~$</span>
       <span class="text-[var(--color-muted)] ml-2">./contact.sh</span>
     </div>
-    <p class="text-[var(--color-prompt)] mt-1">✓ message sent. thanks — I'll reply soon.</p>
+    <p class="text-[var(--color-prompt)] mt-1">[ok] message sent. thanks — I'll reply soon.</p>
   </div>
 {:else}
   <form
@@ -45,10 +45,10 @@
     novalidate
   >
     <!-- Honeypot -->
-    <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px;" />
 
     {#if form?.error}
-      <p class="text-red-400 text-xs">{form.error}</p>
+      <p class="text-red-400 text-xs" role="alert" aria-live="polite">{form.error}</p>
     {/if}
 
     <div class="flex items-baseline gap-2 flex-wrap">
@@ -98,7 +98,7 @@
       {#if submitting}
         <span class="text-[var(--color-muted)]">sending...</span><BlinkingCursor />
       {:else}
-        [send →]
+        [send]
       {/if}
     </button>
   </form>

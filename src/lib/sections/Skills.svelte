@@ -11,7 +11,7 @@
       <span class="text-[var(--color-muted)]">{'{'}</span>
       {#each skillGroups as group, i}
         <div class="pl-4 flex flex-wrap items-baseline leading-relaxed">
-          <span class="text-[var(--color-accent)] shrink-0">"{group.title.toLowerCase().replace(/[\s/]/g, '_')}"</span>
+          <span class="text-[var(--color-accent)] shrink-0">"{group.title.toLowerCase().replace(/[\s/]+/g, '_')}"</span>
           <span class="text-[var(--color-muted)] shrink-0">:&nbsp;[</span>
           {#each group.items as item, j}
             <span class="text-[var(--color-text)]">{item}</span>{#if j < group.items.length - 1}<span class="text-[var(--color-muted)]">,&nbsp;</span>{/if}

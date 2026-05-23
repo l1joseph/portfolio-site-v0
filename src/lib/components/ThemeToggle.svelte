@@ -21,14 +21,16 @@
 
   function toggle() {
     dark = !dark;
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    const t = dark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
   }
 </script>
 
 <button
   onclick={toggle}
   aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
-  class="p-2 rounded-md text-[var(--color-muted)] hover:text-[var(--color-amber)] hover:bg-[var(--color-bg-elev)] transition-colors"
+  class="p-2 text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
 >
   {#if dark}
     <Sun />

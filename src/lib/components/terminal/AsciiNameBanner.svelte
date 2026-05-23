@@ -78,7 +78,10 @@
       return { x: ex - r.left, y: ey - r.top };
     }
 
-    const themeObs = new MutationObserver(() => { needsRecolor = true; });
+    const themeObs = new MutationObserver(() => {
+      needsRecolor = true;
+      if (reducedMotion && ready) render();
+    });
     themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
     function render() {
@@ -255,13 +258,13 @@
     resizeObs.observe(container);
 
     if (!reducedMotion) {
-      window.addEventListener('pointermove', handlePointerMove);
-      window.addEventListener('pointerdown', handlePointerDown);
-      window.addEventListener('pointerup', handlePointerEnd);
-      window.addEventListener('pointerleave', handlePointerEnd);
-      window.addEventListener('touchstart', handleTouchStart, { passive: true });
-      window.addEventListener('touchmove', handleTouchMove, { passive: true });
-      window.addEventListener('touchend', handleTouchEnd, { passive: true });
+      container.addEventListener('pointermove', handlePointerMove);
+      container.addEventListener('pointerdown', handlePointerDown);
+      container.addEventListener('pointerup', handlePointerEnd);
+      container.addEventListener('pointerleave', handlePointerEnd);
+      container.addEventListener('touchstart', handleTouchStart, { passive: true });
+      container.addEventListener('touchmove', handleTouchMove, { passive: true });
+      container.addEventListener('touchend', handleTouchEnd, { passive: true });
     }
 
     return () => {
@@ -270,19 +273,19 @@
       themeObs.disconnect();
       resizeObs.disconnect();
       if (!reducedMotion) {
-        window.removeEventListener('pointermove', handlePointerMove);
-        window.removeEventListener('pointerdown', handlePointerDown);
-        window.removeEventListener('pointerup', handlePointerEnd);
-        window.removeEventListener('pointerleave', handlePointerEnd);
-        window.removeEventListener('touchstart', handleTouchStart);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
+        container.removeEventListener('pointermove', handlePointerMove);
+        container.removeEventListener('pointerdown', handlePointerDown);
+        container.removeEventListener('pointerup', handlePointerEnd);
+        container.removeEventListener('pointerleave', handlePointerEnd);
+        container.removeEventListener('touchstart', handleTouchStart);
+        container.removeEventListener('touchmove', handleTouchMove);
+        container.removeEventListener('touchend', handleTouchEnd);
       }
       cells = []; field = null;
     };
   });
 </script>
 
-<div bind:this={container} class="w-full h-full {klass}">
-  <canvas bind:this={canvas} class="w-full h-full" aria-label="LEO JOSEPH — ASCII art banner"></canvas>
+<div bind:this={container} class="w-full h-full {klass}" role="img" aria-label="LEO JOSEPH — ASCII art banner">
+  <canvas bind:this={canvas} class="w-full h-full" aria-hidden="true"></canvas>
 </div>
