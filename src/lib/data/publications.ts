@@ -24,6 +24,6 @@ export const publications: Publication[] = [
     authors: 'Carlson AL, Patel L, Joseph L, Lopez L, Andreason C, Barnes CC, Arias S, Courchesne E, Knight R, Pierce K',
     venue: 'Biological Psychiatry 97(9):S128 · Society for Biological Psychiatry · Toronto, ON',
     year: 2025,
-    url: 'https://scholar.google.com/citations?user=34rn0MAAAAAJ&hl=en'
+    url: 'https://scholar.google.com/citations?hl=enhttps://scholar.google.com/citations?user=34rn0MAAAAAJ&hl=enuser=WYqud6wAAAAJ'
   }
 ];

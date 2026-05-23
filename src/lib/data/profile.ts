@@ -9,6 +9,6 @@ export const profile = {
     github: 'https://github.com/l1joseph',
     linkedin: 'https://linkedin.com/in/leo-j-joseph/',
     email: 'mailto:l1joseph@ucsd.edu',
-    scholar: 'https://scholar.google.com/citations?user=34rn0MAAAAAJ&hl=en'
+    scholar: 'https://scholar.google.com/citations?hl=enhttps://scholar.google.com/citations?user=34rn0MAAAAAJ&hl=enuser=WYqud6wAAAAJ'
   }
 } as const;
