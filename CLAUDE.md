@@ -17,7 +17,7 @@ This repo has two active site variants, both deployed under the same Vercel proj
 
 | Branch | URL | Theme |
 |--------|-----|-------|
-| `main` | leojjoseph.com | Automotive — dark graphite, amber accent, photo carousel hero |
+| `main` | leojjoseph.com | Automotive — dark graphite, azure accent, photo carousel hero |
 | `feat-terminal-redesign` | bash.leojjoseph.com | Terminal/brutalist — JetBrains Mono, shell-prompt sections, pretext ASCII banner |
 
 **Never push `feat-terminal-redesign` to `main`.** The terminal redesign is a permanent side branch, not a PR target.
@@ -34,13 +34,13 @@ SvelteKit 2 + Svelte 5 + TypeScript + Tailwind CSS v3. Deployed on Vercel at leo
 
 **Styling**: Tailwind v3 (PostCSS plugin, not Vite plugin). All theme colors are CSS custom properties in `src/app.css`. `[data-theme='dark']` is default; `[data-theme='light']` overrides. Never hardcode hex values — always use `var(--color-*)`.
 
-**Theme toggle**: reads system preference on first load; session-only override via a button. No localStorage persistence.
+**Theme toggle**: reads system preference on first load (or localStorage if previously set); persists user override to `localStorage`.
 
 ## Branch-specific design systems
 
 ### `main` — Automotive theme
 - **Fonts**: `Inter Variable` (UI), `JetBrains Mono Variable` (accents)
-- **Colors**: dark graphite `#0d0f14` / chrome text `#e8ecef` / amber accent `#d4a017` / cobalt `#2b4a7a`
+- **Colors**: dark graphite `hsl(210,100%,6%)` / chrome text `hsl(180,100%,90%)` / azure accent `hsl(198,70%,48%)` / cobalt `hsl(200,100%,20%)`
 - **Layout**: `max-w-6xl` centered, card-based project grid, `PhotoCarousel` hero
 - **Key components**: `PhotoCarousel`, `ProjectCard`, `SectionHeading`, `SocialLinks`, `AsciiBackground`
 
@@ -50,7 +50,7 @@ SvelteKit 2 + Svelte 5 + TypeScript + Tailwind CSS v3. Deployed on Vercel at leo
 - **Layout**: left-flush, no `max-w` centering — only `px-6` left padding. Content sits at the viewport edge like a real terminal.
 - **Section headers**: shell prompts (`leo@joseph:~$ cat about.md`) via `ShellPromptHeading` + `Typewriter`
 - **Hero**: pretext ASCII name banner (`AsciiNameBanner`) with `RippleField` physics, cycling photo panel (greyscale + blue tint)
-- **Projects**: split into `ls -la projects/research` and `ls -la projects/fun` via `category` field
+- **Projects**: split into `ls projects/research/` and `ls projects/fun/` via `category` field
 - **Publications**: separate section (`cat publications.bib`) — only presented posters shown (no in-prep papers)
 - **Key components**: `AsciiNameBanner`, `Typewriter`, `BlinkingCursor`, `ShellPromptHeading`, `ProjectLine`
 
